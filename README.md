@@ -1,7 +1,8 @@
 # JayJay
 
 React Native client for [LiveJournal](https://www.livejournal.com/)
-Currently on heavy development
+
+Project currently is on heavy development
 
 ### Roadmap
 * [x] Authors list managment
