@@ -3,7 +3,7 @@
 import * as types from '../constants/actionTypes'
 import type { AuthorsState, Action } from '../reducers/ReducerTypes'
 
-const authorsInitialState: AuthorsState = []
+export const authorsInitialState: AuthorsState = []
 
 export default function authorsReducer(state: AuthorsState = authorsInitialState, action: Action): AuthorsState {
   switch (action.type) {

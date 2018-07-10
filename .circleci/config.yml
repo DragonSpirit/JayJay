@@ -26,17 +26,17 @@ jobs:
             - node_modules
 
       - run:
-          name: eslint
+          name: Linter
           command: |
             yarn run lint
 
       - run:
-          name: flow
+          name: Flow
           command: |
             yarn run flow
 
       - run:
-          name: jest tests
+          name: Unit tests
           command: |
             mkdir -p test-results/jest
             yarn run test
