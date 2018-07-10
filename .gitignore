@@ -60,3 +60,6 @@ Podfile.lock
 
 # vscode
 .vscode
+
+# Jest
+coverage

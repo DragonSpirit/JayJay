@@ -19,12 +19,14 @@
     "test": "jest",
     "lint": "node_modules/.bin/eslint ./ src --ext .js,.jsx",
     "flow": "node_modules/.bin/flow",
-    "flow-stop": "node_modules/.bin/flow stop"
+    "flow-stop": "node_modules/.bin/flow stop",
+    "codecov": "codecov"
   },
   "jest": {
     "preset": "react-native",
     "collectCoverage": false,
-    "coverageDirectory": "__coverage__",
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true,
     "transformIgnorePatterns": [
       "node_modules/(?!(react-native|react-navigation))"
     ],
@@ -41,6 +43,7 @@
   },
   "dependencies": {
     "babel-eslint": "^8.2.1",
+    "codecov": "^3.0.4",
     "eslint": "^5.0.1",
     "eslint-config-standard": "11.0.0",
     "eslint-config-standard-react": "5.0.0",

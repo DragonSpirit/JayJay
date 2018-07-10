@@ -43,6 +43,11 @@ jobs:
           environment:
             JEST_JUNIT_OUTPUT: test-results/jest/junit.xml
 
+      - run:
+          name: Code Coverage
+          command: |
+            yarn run codecov
+
       - persist_to_workspace:
           root: ~/JayJay
           paths:
