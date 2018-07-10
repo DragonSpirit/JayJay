@@ -1,4 +1,5 @@
 # JayJay
+[![CircleCI](https://circleci.com/gh/DragonSpirit/JayJay.svg?style=svg)](https://circleci.com/gh/DragonSpirit/JayJay)
 
 React Native client for [LiveJournal](https://www.livejournal.com/)
 
