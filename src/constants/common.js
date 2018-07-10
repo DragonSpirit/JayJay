@@ -1,4 +1,0 @@
-// @flow
-
-export const SET_AUTHORS_LOADING_STATE: string = 'SET_AUTHORS_LOADING_STATE'
-export const SET_POSTS_LOADING_STATE: string = 'SET_POSTS_LOADING_STATE'

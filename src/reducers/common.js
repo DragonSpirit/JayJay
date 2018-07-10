@@ -1,6 +1,6 @@
 // @flow
 
-import * as types from '../constants/common'
+import * as types from '../constants/actionTypes'
 import type { CommonState, Action } from '../reducers/ReducerTypes'
 
 const commonInitialState: CommonState = ({

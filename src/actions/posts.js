@@ -1,7 +1,6 @@
 // @flow
 
-import * as types from '../constants/posts'
-import { ADD_AUTHOR_FAILURE } from  '../constants/authors'
+import * as types from '../constants/actionTypes'
 import type { Action, Dispatch, GetState } from '../reducers/ReducerTypes'
 import API from '../helpers/API'
 import { setPostsLoadingState } from './common'
@@ -20,7 +19,7 @@ const loadPostsSuccess = (author: string, result: Array<Object>): Action => ({
 })
 
 const loadPostsFailure = (error: Error): Action => ({
-  type: ADD_AUTHOR_FAILURE,
+  type: types.ADD_AUTHOR_FAILURE,
   payload: error,
 })
 

@@ -26,6 +26,16 @@ jobs:
             - node_modules
 
       - run:
+          name: eslint
+          command: |
+            yarn run lint
+
+      - run:
+          name: flow
+          command: |
+            yarn run flow
+
+      - run:
           name: jest tests
           command: |
             mkdir -p test-results/jest

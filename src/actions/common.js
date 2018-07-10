@@ -1,6 +1,6 @@
 // @flow
 
-import * as types from '../constants/common'
+import * as types from '../constants/actionTypes'
 
 export const setAuthorsLoadingState = (isLoading: boolean) => ({
   type: types.SET_AUTHORS_LOADING_STATE,

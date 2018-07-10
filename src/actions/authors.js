@@ -1,6 +1,6 @@
 // @flow
 
-import * as types from '../constants/authors'
+import * as types from '../constants/actionTypes'
 import { setAuthorsLoadingState } from './common'
 import { Alert } from 'react-native'
 import type {

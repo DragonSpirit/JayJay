@@ -1,7 +1,6 @@
 // @flow
 
-import * as types from '../constants/posts'
-import * as authorsTypes from '../constants/authors'
+import * as types from '../constants/actionTypes'
 import type { PostsState, Action } from '../reducers/ReducerTypes'
 import uniqBy from 'lodash.uniqby'
 
@@ -33,7 +32,7 @@ export default function postsReducer(state: PostsState = postsInitialState, acti
       }
       return newState
     }
-    case authorsTypes.DELETE_AUTHOR: {
+    case types.DELETE_AUTHOR: {
       const newState = {
         posts: state.posts.filter(post => post.author !== action.payload),
         favoritePosts: state.favoritePosts.filter(post => post.author !== action.payload),
