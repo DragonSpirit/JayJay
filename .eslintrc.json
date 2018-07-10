@@ -1,0 +1,118 @@
+{
+  "parser": "babel-eslint",
+  "plugins": [
+    "babel",
+    "import",
+    "react",
+    "react-native",
+    "flow-vars",
+    "flowtype"
+  ],
+  "extends": [
+    "standard",
+    "standard-react",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-native/all",
+    "plugin:flowtype/recommended"
+  ],
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "Action": false,
+    "process.env.NODE_ENV": false,
+    "NODE_ENV": false,
+    "__LOCAL__": false,
+    "__DEV__": false,
+    "__QA__": false,
+    "__PROD__": false,
+    "__DEBUG__": false,
+    "__COVERAGE__": false,
+    "__DEBUG_NEW_WINDOW__": false,
+    "__BASENAME__": false
+  },
+  "rules": {
+    "semi": [
+      2,
+      "never"
+    ],
+    "comma-dangle": [
+      2,
+      "always-multiline"
+    ],
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "prefer-const": "error",
+    "quote-props": [
+      "error",
+      "as-needed"
+    ],
+    "no-const-assign": "error",
+    "no-new-object": "error",
+    "no-param-reassign": "error",
+    "no-unused-vars": "warn",
+    "quotes": [
+      "error",
+      "single",
+      {
+        "allowTemplateLiterals": true
+      }
+    ],
+    "max-len": [
+      "warn",
+      120,
+      2
+    ],
+    "operator-linebreak": [
+      1,
+      "after"
+    ],
+    "jsx-quotes": [
+      "error",
+      "prefer-single"
+    ],
+    "prefer-rest-params": 1,
+    "react/jsx-no-bind": 1,
+    "react/no-unused-prop-types": 0,
+    "react/jsx-tag-spacing": ["error", { "beforeSelfClosing": "always" }],
+    "space-before-blocks": [
+      "error",
+      "always"
+    ],
+    "space-before-function-paren": [
+      "error",
+      {
+        "anonymous": "always",
+        "named": "never",
+        "asyncArrow": "always"
+      }
+    ],
+    "arrow-parens": [
+      "error",
+      "as-needed"
+    ],
+    "flow-vars/define-flow-type": 1,
+    "flow-vars/use-flow-type": 1
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "flowtype": {
+      "onlyFilesWithFlowAnnotation": true
+    },
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      }
+    }
+  }
+}

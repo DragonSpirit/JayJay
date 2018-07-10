@@ -1,0 +1,73 @@
+{
+  "name": "JayJay",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "babel-plugin-flow-react-proptypes": "^3.4.3",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-react-native-stage-0": "^1.0.1",
+    "flow-bin": "^0.75.0",
+    "flow-typed": "^2.3.0",
+    "jest": "^23.2.0",
+    "jest-react-native": "^18.0.0",
+    "react-test-renderer": "16.3.1"
+  },
+  "scripts": {
+    "start": "react-native start",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "test": "jest",
+    "lint": "node_modules/.bin/eslint ./ src --ext .js,.jsx",
+    "flow": "node_modules/.bin/flow",
+    "flow-stop": "node_modules/.bin/flow stop"
+  },
+  "jest": {
+    "preset": "react-native",
+    "collectCoverage": false,
+    "coverageDirectory": "__coverage__",
+    "transformIgnorePatterns": [
+      "node_modules/(?!(react-native|react-navigation))"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.js?(x)",
+      "**/?(*.)(spec|test).js?(x)"
+    ],
+    "setupFiles": [
+      "./.jestsetup.js"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
+  "dependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint": "^5.0.1",
+    "eslint-config-standard": "11.0.0",
+    "eslint-config-standard-react": "5.0.0",
+    "eslint-import-resolver-babel-module": "4.0.0",
+    "eslint-plugin-babel": "^5.0.0",
+    "eslint-plugin-flow-vars": "^0.5.0",
+    "eslint-plugin-flowtype": "^2.39.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "6.0.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-react": "7.6.1",
+    "eslint-plugin-react-native": "3.2.1",
+    "eslint-plugin-standard": "3.0.1",
+    "lodash.uniqby": "^4.7.0",
+    "prop-types": "^15.6.2",
+    "react": "16.3.1",
+    "react-native": "^0.55.0",
+    "react-native-elements": "^0.19.1",
+    "react-native-render-html": "^3.10.0",
+    "react-native-vector-icons": "^4.6.0",
+    "react-native-xmlrpc": "git+https://github.com/DragonSpirit/react-native-xmlrpc",
+    "react-navigation": "^2.5.3",
+    "react-redux": "^5.0.7",
+    "reactotron-react-native": "^1.14.0",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "url": "^0.11.0"
+  }
+}

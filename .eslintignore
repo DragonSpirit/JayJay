@@ -1,0 +1,10 @@
+/test
+/flow-typed
+/ios
+/android
+/__tests__
+/node_modules
+/__coverage__
+*.spec.js
+/scripts
+*.test.js
