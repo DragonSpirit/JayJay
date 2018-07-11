@@ -299,14 +299,7 @@ exports[`non empty renders correctly 1`] = `
         style={null}
       >
         <View
-          accessible={true}
-          isTVSelectable={true}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
+          disabled={false}
           style={
             Array [
               Object {
@@ -322,6 +315,7 @@ exports[`non empty renders correctly 1`] = `
               false,
             ]
           }
+          underlayColor="white"
         >
           <View
             style={
@@ -383,6 +377,14 @@ exports[`non empty renders correctly 1`] = `
               </View>
             </View>
             <View
+              accessible={true}
+              isTVSelectable={true}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
               style={
                 Array [
                   false,
@@ -396,7 +398,6 @@ exports[`non empty renders correctly 1`] = `
                   undefined,
                 ]
               }
-              underlayColor="white"
             >
               <Text
                 accessible={true}

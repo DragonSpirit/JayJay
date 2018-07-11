@@ -3,7 +3,7 @@ import {
   View,
   ScrollView,
   Dimensions,
-  Text, 
+  Text,
 } from 'react-native'
 import { object } from 'prop-types'
 import styles from './styles'
@@ -25,8 +25,11 @@ class PostDetailScreen extends React.PureComponent {
   }
 
   render() {
-    const item = this.props.navigation.state.params
-    return (
+    const {
+      navigation,
+    } = this.props
+    const item = navigation && navigation.state && navigation.state.params
+    return item ? (
       <View style={commonStyles.flex}>
         <Text style={styles.title}>{item.title}</Text>
         <ScrollView style={[commonStyles.flex, styles.scrollViewStyle]}
@@ -34,7 +37,7 @@ class PostDetailScreen extends React.PureComponent {
           <HTML html={item.text} imagesMaxWidth={Dimensions.get('window').width} />
         </ScrollView>
       </View>
-    )
+    ) : null
   }
 
 }

@@ -32,11 +32,15 @@ class FeedScreen extends React.PureComponent<Props> {
     isPostsLoading: bool,
   };
 
+  static defaultProps = {
+    authors: [],
+  }
+
   constructor(props: Props) {
     super(props)
   }
 
-  emptyAuthorView = () => (
+  emptyAuthorView = (): React$Element<any> => (
     <View style={commonStyles.container}>
       <Text style={styles.welcome}>
           Похоже на то, что вы никого не выбрали для отслеживания

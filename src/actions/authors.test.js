@@ -39,6 +39,8 @@ describe('authors async actions', () => {
         { type: types.SET_AUTHORS_LOADING_STATE, payload: true },
         { type: types.ADD_AUTHOR_SUCCESS, payload: 'test' },
         { type: types.SET_AUTHORS_LOADING_STATE, payload: false },
+        { type: types.TRY_LOAD_POSTS, payload: 'test' },
+        { type: types.SET_POSTS_LOADING_STATE, payload: true },
       ]
 
     const store = mockStore(state)

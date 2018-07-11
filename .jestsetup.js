@@ -18,3 +18,7 @@ NativeModules.BlobModule = {
   ...NativeModules.BlobModule,
   addNetworkingHandler: jest.fn()
 };
+
+jest.mock('redux-persist/integration/react', () => ({
+  PersistGate: props => props.children,
+}))

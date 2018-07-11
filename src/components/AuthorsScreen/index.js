@@ -47,12 +47,12 @@ class AuthorsScreen extends React.PureComponent<Props, State> {
     super(props)
   }
 
-  state = {
+  state: State = {
     name: '',
   }
 
   addUser = (): void => {
-    this.props.fetchAuthors(this.state.name).catch(error => {
+    this.props.fetchAuthors(this.state.name).catch((error: Error) => {
       switch (error.message) {
         case 'unknown user':
           Alert.alert(
@@ -67,6 +67,10 @@ class AuthorsScreen extends React.PureComponent<Props, State> {
           )
           break
         default:
+          Alert.alert(
+            'Ошибка',
+            'Неизвестная ошибка, попробуйте позже',
+          )
           break
       }
     })
@@ -96,14 +100,18 @@ class AuthorsScreen extends React.PureComponent<Props, State> {
   renderAuthorsItem = (data: Object) => (
     <ListItem
       title={data.item}
-      rightIcon={<Icon name='delete' color='#000' />}
-      onPress={() => this.deleteUser(data.item)}
+      rightIcon={
+        <Icon name='delete'
+          color='#000'
+          onPress={() => this.deleteUser(data.item)}
+        />
+      }
     />
   )
 
   _keyExtractor = (item, index): string => `${index}`
 
-  authorsListView = () => (
+  authorsListView = (): React$Element<any> => (
     <View style={styles.authorsContainer}>
       <View style={commonStyles.flexRow}>
         <TextInput

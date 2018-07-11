@@ -3,7 +3,7 @@
 import * as types from '../constants/actionTypes'
 import type { CommonState, Action } from '../reducers/ReducerTypes'
 
-const commonInitialState: CommonState = ({
+export const commonInitialState: CommonState = ({
   authorsLoading: false,
   postsLoading: false,
 })

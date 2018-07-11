@@ -2,6 +2,7 @@
 
 import * as types from '../constants/actionTypes'
 import { setAuthorsLoadingState } from './common'
+import { requestLoadPosts } from './posts'
 import type {
   PrimitiveAction,
   Action,
@@ -47,6 +48,7 @@ export const requestAddAuthor = (author: string): ThunkAction =>
         if (response.ok) {
           dispatch(addAuthorSuccess(author))
           dispatch(setAuthorsLoadingState(false))
+          dispatch(requestLoadPosts(author))
           Promise.resolve(response.text())
         } else {
           throw new Error('User not found.')

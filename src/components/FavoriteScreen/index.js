@@ -1,8 +1,8 @@
 import React from 'react'
 import { View, Text } from 'react-native'
-import { FavoriteTabIcon } from './TabIcons/FavoriteTabIcon'
+import { FavoriteTabIcon } from '../TabIcons/FavoriteTabIcon'
 import PropTypes from 'prop-types'
-import { commonStyles } from './common.styles'
+import { commonStyles } from '../common.styles'
 
 class FavoriteScreen extends React.PureComponent {
   constructor(props) {
@@ -23,7 +23,7 @@ class FavoriteScreen extends React.PureComponent {
     title: 'Favorites',
     tabBarIcon: FavoriteTabIcon,
   }
-  
+
   static propTypes = {
     posts: PropTypes.array,
   }
