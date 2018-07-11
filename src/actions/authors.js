@@ -2,7 +2,6 @@
 
 import * as types from '../constants/actionTypes'
 import { setAuthorsLoadingState } from './common'
-import { Alert } from 'react-native'
 import type {
   PrimitiveAction,
   Action,
@@ -35,32 +34,27 @@ export const clearAuthors = (): PrimitiveAction => ({
   type: types.CLEAR_AUTHORS,
 })
 
-export const requestAddAuthor = (author: string): ThunkAction => (dispatch: Dispatch, getState: GetState): void => {
-  const state = getState()
-  if (state.authors.includes(author.toLowerCase())) {
-    Alert.alert(
-      'Ошибка',
-      'Такого пользователь уже находится в списке отслеживаемых',
-    )
-    return
-  }
-  dispatch(tryAddAuthor(author))
-  dispatch(setAuthorsLoadingState(true))
-  fetch(`https://${author}.livejournal.com`)
-    .then((response: Object) => {
-      if (response.ok) {
-        dispatch(addAuthorSuccess(author))
+export const requestAddAuthor = (author: string): ThunkAction =>
+  (dispatch: Dispatch, getState: GetState): Promise<any> => {
+    const state = getState()
+    if (state.authors.includes(author.toLowerCase())) {
+      return new Promise((resolve, reject) => reject(new Error('duplicate users')))
+    }
+    dispatch(tryAddAuthor(author))
+    dispatch(setAuthorsLoadingState(true))
+    return fetch(`https://${author}.livejournal.com`)
+      .then((response: Object) => {
+        if (response.ok) {
+          dispatch(addAuthorSuccess(author))
+          dispatch(setAuthorsLoadingState(false))
+          Promise.resolve(response.text())
+        } else {
+          throw new Error('User not found.')
+        }
+      })
+      .catch(error => {
+        dispatch(addAuthorFailure(error))
         dispatch(setAuthorsLoadingState(false))
-        return response.text()
-      }
-      throw new Error('User not found.')
-    })
-    .catch(error => {
-      dispatch(setAuthorsLoadingState(false))
-      dispatch(addAuthorFailure(error))
-      Alert.alert(
-        'Ошибка',
-        'Такого пользователя скорее всего не существует',
-      )
-    })
-}
+        return new Promise((resolve, reject) => reject(new Error('unknown user')))
+      })
+  }

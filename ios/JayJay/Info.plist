@@ -31,14 +31,14 @@
 		<key>NSExceptionDomains</key>
 		<dict>
 			<key>livejournal.com</key>
-      <dict>
-      	<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-      	<true/>
+			<dict>
 				<key>NSExceptionDomains</key>
 				<true/>
 				<key>NSIncludesSubdomains</key>
 				<true/>
 				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
 			</dict>
 			<key>localhost</key>

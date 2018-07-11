@@ -11,12 +11,6 @@ import posts from './src/reducers/posts'
 import common from './src/reducers/common'
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
-import Reactotron from 'reactotron-react-native'
-
-Reactotron
-  .configure()
-  .useReactNative()
-  .connect()
 
 const AppReducer = combineReducers({
   authors,

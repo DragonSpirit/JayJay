@@ -1,7 +1,12 @@
 // @flow
 
 import React from 'react'
-import { View, TextInput, FlatList } from 'react-native'
+import {
+  View,
+  TextInput,
+  FlatList,
+  Alert,
+} from 'react-native'
 import { AuthorsTabIcon } from '../TabIcons/AuthorsTabIcon'
 import { array, func, bool } from 'prop-types'
 import { Button, ListItem, Icon } from 'react-native-elements'
@@ -47,7 +52,24 @@ class AuthorsScreen extends React.PureComponent<Props, State> {
   }
 
   addUser = (): void => {
-    this.props.fetchAuthors(this.state.name)
+    this.props.fetchAuthors(this.state.name).catch(error => {
+      switch (error.message) {
+        case 'unknown user':
+          Alert.alert(
+            'Ошибка',
+            'Такого пользователя скорее всего не существует',
+          )
+          break
+        case 'duplicate users':
+          Alert.alert(
+            'Ошибка',
+            'Такой пользователь уже находится в списке отслеживаемых',
+          )
+          break
+        default:
+          break
+      }
+    })
   }
 
   _isEmpty = (): boolean => this.state.name.trim().length === 0
