@@ -5,6 +5,7 @@ import { Text, View, FlatList, RefreshControl } from 'react-native'
 import { array, func, bool, object } from 'prop-types'
 import { FeedTabIcon } from '../TabIcons/FeedTabIcon'
 import { Button, Card } from 'react-native-elements'
+import HTML from 'react-native-render-html'
 
 import styles from './styles'
 import { commonStyles } from '../common.styles'
@@ -73,13 +74,10 @@ class FeedScreen extends React.PureComponent<Props> {
   _renderItem = ({item}) => {
     return (
       <Card
-        title={item.title}
-        image={{uri: item.img}}>
-        <Text style={styles.feedText} numberOfLines={3}>
-          {item.text}
-        </Text>
+        title={`${item.author} \n ${item.title}`}
+        image={item.img ? {uri: item.img} : null}>
+        <HTML html={`${item.text.slice(0, 150)}...`} style={styles.feedText} />
         <Button
-          icon={{name: 'code'}}
           backgroundColor='#03A9F4'
           fontFamily='Lato'
           buttonStyle={styles.readPostBtn}

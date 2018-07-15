@@ -14,7 +14,7 @@ export default function postsReducer(state: PostsState = postsInitialState, acti
     case types.LOAD_POSTS_SUCCESS: {
       const { result, author } = action.payload
       const mappedResult: Array<Post> = mapResponsePostsToInternal(author, result)
-      const newPosts = uniqBy([...state.posts, ...mappedResult], 'did')
+      const newPosts = uniqBy([...state.posts, ...mappedResult], 'did').sort((a, b) => b.ts - a.ts)
       const newState: PostsState = {
         ...state,
         posts: newPosts,

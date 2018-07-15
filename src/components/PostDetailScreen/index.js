@@ -34,7 +34,7 @@ class PostDetailScreen extends React.PureComponent {
         <Text style={styles.title}>{item.title}</Text>
         <ScrollView style={[commonStyles.flex, styles.scrollViewStyle]}
           contentContaierStyle={styles.scrollViewContentStyle}>
-          <HTML html={item.text} imagesMaxWidth={Dimensions.get('window').width} />
+          <HTML html={item.text} imagesMaxWidth={Dimensions.get('window').width} ptSize={20} />
         </ScrollView>
       </View>
     ) : null
