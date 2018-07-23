@@ -6,10 +6,11 @@ comment: false
 coverage:
   precision: 2
   round: down
+  range: "70...100"
   status:
     project:
       default:
-       threshold: 0.2
+       threshold: 0.50
        if_not_found: success
     patch:
       default:

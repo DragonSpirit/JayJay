@@ -27,7 +27,7 @@ type State = {
 class AuthorsScreen extends React.PureComponent<Props, State> {
 
   static navigationOptions = {
-    title: 'Authors',
+    title: 'Авторы',
     tabBarIcon: AuthorsTabIcon,
   }
 
@@ -40,6 +40,8 @@ class AuthorsScreen extends React.PureComponent<Props, State> {
 
   static defaultProps = {
     authors: [],
+    fetchAuthors: () => {},
+    deleteAuthor: () => {},
     authorsLoading: false,
   }
 

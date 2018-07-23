@@ -7,12 +7,12 @@ import { requestAddAuthor, deleteAuthor as deleteAction } from '../actions/autho
 
 import type { AppState, Dispatch } from '../reducers/ReducerTypes'
 
-const mapStateToProps = (state: AppState) => ({
+const mapStateToProps = (state: AppState): Object => ({
   authors: state.authors,
   authorsLoading: state.common.authorsLoading,
 })
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
+const mapDispatchToProps = (dispatch: Dispatch): Object => ({
   fetchAuthors: bindActionCreators(requestAddAuthor, dispatch),
   deleteAuthor: author => { dispatch(deleteAction(author)) },
 })

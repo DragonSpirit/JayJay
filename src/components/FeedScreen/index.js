@@ -6,7 +6,7 @@ import { array, func, bool, object } from 'prop-types'
 import { FeedTabIcon } from '../TabIcons/FeedTabIcon'
 import { Button, Card } from 'react-native-elements'
 import HTML from 'react-native-render-html'
-
+import { parseTitle } from '../../helpers/StringUtil'
 import styles from './styles'
 import { commonStyles } from '../common.styles'
 
@@ -21,7 +21,7 @@ type Props = {
 class FeedScreen extends React.PureComponent<Props> {
 
   static navigationOptions = {
-    title: 'Feed',
+    title: 'Лента',
     tabBarIcon: FeedTabIcon,
   }
 
@@ -76,7 +76,7 @@ class FeedScreen extends React.PureComponent<Props> {
       <Card
         title={`${item.author} \n ${item.title}`}
         image={item.img ? {uri: item.img} : null}>
-        <HTML html={`${item.text.slice(0, 150)}...`} style={styles.feedText} />
+        <HTML html={parseTitle(item.text)} style={styles.feedText} />
         <Button
           backgroundColor='#03A9F4'
           fontFamily='Lato'

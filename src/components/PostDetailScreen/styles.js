@@ -13,6 +13,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingVertical: 10,
   },
+  commentButton: {
+    width: '100%',
+    marginVertical: 10,
+  },
 })
 
 export default styles

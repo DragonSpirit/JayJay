@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthorsTabIcon renders correctly 1`] = `
+<View
+  style={
+    Array [
+      false,
+      false,
+      false,
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "transparent",
+        "justifyContent": "center",
+      },
+      undefined,
+    ]
+  }
+  underlayColor="white"
+>
+  <Text
+    accessible={true}
+    allowFontScaling={false}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#000",
+          "fontSize": 24,
+        },
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          undefined,
+        ],
+        Object {
+          "fontFamily": "Material Icons",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+</View>
+`;
+
+exports[`FavoriteTabIcon renders correctly 1`] = `
+<View
+  style={
+    Array [
+      false,
+      false,
+      false,
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "transparent",
+        "justifyContent": "center",
+      },
+      undefined,
+    ]
+  }
+  underlayColor="white"
+>
+  <Text
+    accessible={true}
+    allowFontScaling={false}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#000",
+          "fontSize": 24,
+        },
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          undefined,
+        ],
+        Object {
+          "fontFamily": "Material Icons",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+</View>
+`;
+
+exports[`FeedTabIcon renders correctly 1`] = `
+<View
+  style={
+    Array [
+      false,
+      false,
+      false,
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "transparent",
+        "justifyContent": "center",
+      },
+      undefined,
+    ]
+  }
+  underlayColor="white"
+>
+  <Text
+    accessible={true}
+    allowFontScaling={false}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#000",
+          "fontSize": 24,
+        },
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          undefined,
+        ],
+        Object {
+          "fontFamily": "Material Icons",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+</View>
+`;

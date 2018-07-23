@@ -7,3 +7,7 @@ export const FeedTabIcon = ({ focused }) => (<Icon name='format-align-justify' c
 FeedTabIcon.propTypes = {
   focused: PropTypes.bool,
 }
+
+FeedTabIcon.defaultProps = {
+  focused: false,
+}

@@ -4,7 +4,7 @@
 /android
 /__tests__
 /node_modules
-/__coverage__
+/coverage
 *.spec.js
 /scripts
 *.test.js

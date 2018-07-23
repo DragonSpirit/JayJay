@@ -7,3 +7,7 @@ export const FavoriteTabIcon = ({ focused }) => (<Icon name='star' color={focuse
 FavoriteTabIcon.propTypes = {
   focused: PropTypes.bool,
 }
+
+FavoriteTabIcon.defaultProps = {
+  focused: false,
+}

@@ -7,3 +7,7 @@ export const AuthorsTabIcon = ({ focused }) => (<Icon name='tag-faces' color={fo
 AuthorsTabIcon.propTypes = {
   focused: PropTypes.bool,
 }
+
+AuthorsTabIcon.defaultProps = {
+  focused: false,
+}
