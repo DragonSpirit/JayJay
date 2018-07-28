@@ -22,9 +22,10 @@ export default function postsReducer(state: PostsState = postsInitialState, acti
       return newState
     }
     case types.DELETE_AUTHOR: {
+      const author = action.payload.toLowerCase()
       const newState = {
-        posts: state.posts.filter(post => post.author !== action.payload),
-        favoritePosts: state.favoritePosts.filter(post => post.author !== action.payload),
+        posts: state.posts.filter(post => post.author.toLowerCase() !== author),
+        favoritePosts: state.favoritePosts.filter(post => post.author.toLowerCase() !== author),
       }
       return newState
     }

@@ -113,6 +113,67 @@ describe('authors reducer', () => {
     })).toEqual(expectedState)
   })
 
+  it('should clear posts when author was deleted with different case', () => {
+
+    const state = {
+      favoritePosts: [{
+          author: 'test',
+          id: 6,
+          did: 1692,
+          title: 'Bam!',
+          text: 'test',
+          ts: 1506429420,
+          url: 'https://test.livejournal.com/1692.html',
+          img: undefined,
+          tags: 'win',
+          isFavorite: true,
+        }],
+      posts: [{
+        author: 'test',
+        id: 6,
+        did: 1692,
+        title: 'Bam!',
+        text: 'test',
+        ts: 1506429420,
+        url: 'https://test.livejournal.com/1692.html',
+        img: undefined,
+        tags: 'win',
+        isFavorite: true,
+      },{
+        author: 'test1',
+        id: 6,
+        did: 1692,
+        title: 'Bam2!',
+        text: 'test',
+        ts: 1506429420,
+        url: 'https://test.livejournal.com/1692.html',
+        img: undefined,
+        tags: 'win',
+        isFavorite: true,
+      }]
+    }
+    const expectedState = {
+      favoritePosts: [],
+      posts: [{
+        author: 'test1',
+        id: 6,
+        did: 1692,
+        title: 'Bam2!',
+        text: 'test',
+        ts: 1506429420,
+        url: 'https://test.livejournal.com/1692.html',
+        img: undefined,
+        tags: 'win',
+        isFavorite: true,
+      }]
+    }
+
+    expect(reducer(state, {
+      type: types.DELETE_AUTHOR,
+      payload: 'TeSt',
+    })).toEqual(expectedState)
+  })
+
   it('should sort post from multiple authors by date ', () => {
     const state = postsInitialState
     const payloadTest = {
