@@ -9,6 +9,7 @@ import HTML from 'react-native-render-html'
 import { parseTitle } from '../../helpers/StringUtil'
 import styles from './styles'
 import { commonStyles } from '../common.styles'
+import type { Post } from '../../reducers/ReducerTypes'
 
 type Props = {
   authors: Array<string>,
@@ -76,7 +77,7 @@ class FeedScreen extends React.PureComponent<Props> {
       <Card
         title={`${item.author} \n ${item.title}`}
         image={item.img ? {uri: item.img} : null}>
-        <HTML html={parseTitle(item.text)} style={styles.feedText} />
+        <HTML html={`${parseTitle(item.text)}...`} style={styles.feedText} />
         <Button
           backgroundColor='#03A9F4'
           fontFamily='Lato'
@@ -94,7 +95,7 @@ class FeedScreen extends React.PureComponent<Props> {
     })
   }
 
-  _keyExtractor = (item, index) => `${item.did}`
+  _keyExtractor = (item: Post, index) => `${item.did}`
 
   render() {
     const {

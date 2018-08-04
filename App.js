@@ -26,9 +26,17 @@ const AppReducer = combineReducers({
   common,
 })
 
+const middlewares = [
+  thunk,
+]
+
+if (__DEV__) {
+  middlewares.push(logger)
+}
+
 const persistedReducer = persistReducer(persistConfig, AppReducer)
 
-const store = createStore(persistedReducer, applyMiddleware(thunk, logger))
+const store = createStore(persistedReducer, applyMiddleware(...middlewares))
 export const persistor = persistStore(store)
 
 export default class App extends React.Component {

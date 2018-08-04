@@ -38,15 +38,3 @@ methods.forEach(function (method) {
 })
 
 export default API
-
-// API.getevents({
-//   journal: 'evo-lutio',
-//   auth_method: 'noauth',
-//   selecttype: 'lastn',
-//   howmany: 20,
-// }, function (err, value) {
-//   if (err) console.warn(err)
-//   if (value && value.events) {
-//     console.warn(value.events[0].subject)
-//   }
-// })

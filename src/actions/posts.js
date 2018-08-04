@@ -1,7 +1,7 @@
 // @flow
 
 import * as types from '../constants/actionTypes'
-import type { Action, Dispatch, GetState } from '../reducers/ReducerTypes'
+import type { Action, Dispatch } from '../reducers/ReducerTypes'
 import API from '../helpers/API'
 import { setPostsLoadingState } from './common'
 
@@ -19,23 +19,37 @@ const loadPostsSuccess = (author: string, result: Array<Object>): Action => ({
 })
 
 const loadPostsFailure = (error: Error): Action => ({
-  type: types.ADD_AUTHOR_FAILURE,
+  type: types.LOAD_POSTS_FAILURE,
   payload: error,
 })
 
-export const requestLoadPosts = (author: string) => (dispatch: Dispatch, getState: GetState) => {
+export const requestLoadPosts = (author: string) => (dispatch: Dispatch) => {
   dispatch(tryLoadPosts(author))
   dispatch(setPostsLoadingState(true))
-  API.getevents({
-    journal: author,
-    auth_method: 'noauth',
-    selecttype: 'lastn',
-    howmany: 20,
-  }, (error: Error, value) => {
-    if (error) {
+  return getEventsFromServer(author)
+    .then(value => {
+      value && dispatch(loadPostsSuccess(author, value.events))
+    })
+    .catch(error => {
       dispatch(loadPostsFailure(error))
-    }
-    value && dispatch(loadPostsSuccess(author, value.events))
-    dispatch(setPostsLoadingState(false))
+    })
+    .finally(() => {
+      dispatch(setPostsLoadingState(false))
+    })
+}
+
+export const getEventsFromServer = (author: string) => {
+  return new Promise((resolve, reject) => {
+    API.getevents({
+      journal: author,
+      auth_method: 'noauth',
+      selecttype: 'lastn',
+      howmany: 20,
+    }, (error: Error, value) => {
+      if (error) {
+        reject(error)
+      }
+      resolve(value)
+    })
   })
 }

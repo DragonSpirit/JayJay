@@ -17,6 +17,7 @@ type Props = {
   authors: Array<string>,
   fetchAuthors: (author: string) => any,
   deleteAuthor: (author: string) => any,
+  fetchPosts: (author: string) => any,
   authorsLoading: boolean,
 }
 
@@ -35,6 +36,7 @@ class AuthorsScreen extends React.PureComponent<Props, State> {
     authors: array,
     fetchAuthors: func,
     deleteAuthor: func,
+    fetchPosts: func,
     authorsLoading: bool,
   };
 
@@ -54,28 +56,30 @@ class AuthorsScreen extends React.PureComponent<Props, State> {
   }
 
   addUser = (): void => {
-    this.props.fetchAuthors(this.state.name).catch((error: Error) => {
-      switch (error.message) {
-        case 'unknown user':
-          Alert.alert(
-            'Ошибка',
-            'Такого пользователя скорее всего не существует',
-          )
-          break
-        case 'duplicate users':
-          Alert.alert(
-            'Ошибка',
-            'Такой пользователь уже находится в списке отслеживаемых',
-          )
-          break
-        default:
-          Alert.alert(
-            'Ошибка',
-            'Неизвестная ошибка, попробуйте позже',
-          )
-          break
-      }
-    })
+    this.props.fetchAuthors(this.state.name)
+      .then(this.props.fetchPosts(this.state.name))
+      .catch((error: Error) => {
+        switch (error.message) {
+          case 'unknown user':
+            Alert.alert(
+              'Ошибка',
+              'Такого пользователя скорее всего не существует',
+            )
+            break
+          case 'duplicate users':
+            Alert.alert(
+              'Ошибка',
+              'Такой пользователь уже находится в списке отслеживаемых',
+            )
+            break
+          default:
+            Alert.alert(
+              'Ошибка',
+              'Неизвестная ошибка, попробуйте позже',
+            )
+            break
+        }
+      })
   }
 
   _isEmpty = (): boolean => this.state.name.trim().length === 0
@@ -113,7 +117,7 @@ class AuthorsScreen extends React.PureComponent<Props, State> {
 
   _keyExtractor = (item, index): string => `${index}`
 
-  authorsListView = (): React$Element<any> => (
+  authorsListView = (): any => (
     <View style={styles.authorsContainer}>
       <View style={commonStyles.flexRow}>
         <TextInput

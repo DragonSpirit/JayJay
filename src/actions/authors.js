@@ -2,7 +2,6 @@
 
 import * as types from '../constants/actionTypes'
 import { setAuthorsLoadingState } from './common'
-import { requestLoadPosts } from './posts'
 import type {
   PrimitiveAction,
   Action,
@@ -39,7 +38,7 @@ export const requestAddAuthor = (author: string): ThunkAction =>
   (dispatch: Dispatch, getState: GetState): Promise<any> => {
     const state = getState()
     if (state.authors.includes(author.toLowerCase())) {
-      return new Promise((resolve, reject) => reject(new Error('duplicate users')))
+      return Promise.reject(new Error('duplicate users'))
     }
     dispatch(tryAddAuthor(author))
     dispatch(setAuthorsLoadingState(true))
@@ -48,7 +47,6 @@ export const requestAddAuthor = (author: string): ThunkAction =>
         if (response.ok) {
           dispatch(addAuthorSuccess(author))
           dispatch(setAuthorsLoadingState(false))
-          dispatch(requestLoadPosts(author))
           Promise.resolve(response.text())
         } else {
           throw new Error('User not found.')
@@ -57,6 +55,6 @@ export const requestAddAuthor = (author: string): ThunkAction =>
       .catch(error => {
         dispatch(addAuthorFailure(error))
         dispatch(setAuthorsLoadingState(false))
-        return new Promise((resolve, reject) => reject(new Error('unknown user')))
+        return Promise.reject(new Error('unknown user'))
       })
   }
