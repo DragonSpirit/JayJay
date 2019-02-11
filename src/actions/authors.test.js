@@ -58,3 +58,21 @@ describe('authors async actions', () => {
   })
 
 })
+
+describe('authors sync actions', () => {
+  it('should fire delete action', () => {
+    const expectedActions = [{ type: types.DELETE_AUTHOR, payload: 'test' }]
+    const state = { authors: ['test'] }
+    const store = mockStore(state)
+    store.dispatch(actions.deleteAuthor('test'))
+    expect(store.getActions()).toEqual(expectedActions)
+  })
+
+  it('should fire clear action', () => {
+    const expectedActions = [{ type: types.CLEAR_AUTHORS }]
+    const state = {authors: []}
+    const store = mockStore(state)
+    store.dispatch(actions.clearAuthors())
+    expect(store.getActions()).toEqual(expectedActions)
+  })
+})

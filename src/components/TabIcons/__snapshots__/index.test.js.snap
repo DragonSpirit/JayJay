@@ -80,14 +80,14 @@ exports[`FavoriteTabIcon renders correctly 1`] = `
           undefined,
         ],
         Object {
-          "fontFamily": "Material Icons",
+          "fontFamily": "FontAwesome",
           "fontStyle": "normal",
           "fontWeight": "normal",
         },
       ]
     }
   >
-    
+    
   </Text>
 </View>
 `;

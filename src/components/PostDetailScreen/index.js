@@ -4,8 +4,8 @@ import {
   ScrollView,
   Text,
 } from 'react-native'
-import { object } from 'prop-types'
-import { Button } from 'react-native-elements'
+import { object, func } from 'prop-types'
+import { Button, Icon } from 'react-native-elements'
 import styles from './styles'
 import { commonStyles } from '../common.styles'
 import HTML from 'react-native-render-html'
@@ -13,6 +13,8 @@ import {
   ANIMATIONS_SLIDE,
   CustomTabs,
 } from 'react-native-custom-tabs'
+
+const postText = {fontSize: 16}
 
 class PostDetailScreen extends React.PureComponent {
 
@@ -22,6 +24,9 @@ class PostDetailScreen extends React.PureComponent {
 
   static propTypes = {
     navigation: object,
+    isFavorite: func,
+    addToFavorite: func,
+    removeFromFavorite: func,
   }
 
   constructor(props) {
@@ -46,19 +51,52 @@ class PostDetailScreen extends React.PureComponent {
     })
   }
 
+  openLink = link => {
+    CustomTabs.openURL(link, {
+      toolbarColor: '#607D8B',
+      enableUrlBarHiding: true,
+      showPageTitle: true,
+      enableDefaultShare: true,
+      animations: ANIMATIONS_SLIDE,
+      forceCloseOnRedirection: true,
+    })
+  }
+
+  toggleFavorite = id => {
+    const {isFavorite, addToFavorite, removeFromFavorite} = this.props
+    if (isFavorite(id)) {
+      removeFromFavorite(id)
+    } else {
+      addToFavorite(id)
+    }
+  }
+
   render() {
     const {
       navigation,
+      isFavorite,
     } = this.props
     const item = navigation && navigation.state && navigation.state.params
     return item ? (
       <View style={commonStyles.flex}>
-        <Text style={styles.title}>{item.title}</Text>
+        <View style={styles.headerContainer}>
+          <Text style={styles.title}>{item.title}</Text>
+          <Icon
+            name='heart'
+            type='font-awesome'
+            underlayColor={'transparent'}
+            style={styles.toggleFavoriteIcon}
+            color={isFavorite(item.id) ? '#184fff' : '#000'}
+            onPress={() => {this.toggleFavorite(item.id)}} />
+        </View>
         <ScrollView style={[commonStyles.flex, styles.scrollViewStyle]}
           contentContaierStyle={styles.scrollViewContentStyle}>
           <HTML html={item.text}
-            ptSize={20}
-            imagesInitialDimensions={{width: 200, height: 200}} />
+            imagesInitialDimensions={{width: 200, height: 200}}
+            onLinkPress={(event, link) => {this.openLink(link)}}
+            textSelectable
+            baseFontStyle={postText}
+          />
         </ScrollView>
         <Button title='Комментарии'
           onPress={this.openComments}

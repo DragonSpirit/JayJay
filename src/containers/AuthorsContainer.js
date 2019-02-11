@@ -15,7 +15,7 @@ const mapStateToProps = (state: AppState): Object => ({
 
 const mapDispatchToProps = (dispatch: Dispatch): Object => ({
   fetchAuthors: bindActionCreators(requestAddAuthor, dispatch),
-  deleteAuthor: author => { dispatch(deleteAction(author)) },
+  deleteAuthor: bindActionCreators(deleteAction, dispatch),
   fetchPosts: bindActionCreators(requestLoadPosts, dispatch),
 })
 

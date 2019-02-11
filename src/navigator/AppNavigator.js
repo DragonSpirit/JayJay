@@ -4,20 +4,22 @@ import {
   createBottomTabNavigator,
   createStackNavigator,
 } from 'react-navigation'
-// import FavoriteContainer from '../containers/FavoriteContainer'
+import FavoriteContainer from '../containers/FavoriteContainer'
 import FeedContainer from '../containers/FeedContainer'
 import AuthorsContainer from '../containers/AuthorsContainer'
-import PostDetailScreen from '../components/PostDetailScreen'
+import PostDetailContainer from '../containers/PostDetailsContainer'
 
 const TabNavigation = createBottomTabNavigator({
   Feed: FeedContainer,
-  // Favorite: FavoriteContainer,
   Authors: AuthorsContainer,
+  Favorite: FavoriteContainer,
+}, {
+
 })
 
 export const RootNavigation = createStackNavigator({
   Tabs: TabNavigation,
-  Details: PostDetailScreen,
+  Details: PostDetailContainer,
 },{
   navigationOptions: {
     header: null,

@@ -52,6 +52,19 @@ describe('posts async actions', () => {
       })
   })
 
+  it('should fire add action', () => {
+    const expectedActions = [{type: types.ADD_POST_TO_FAVORITES, payload: {id: 1}}]
+    const store = mockStore(postsInitialState)
+    store.dispatch(posts.addPostToFavorites(1))
+    expect(store.getActions()).toEqual(expectedActions)
+  })
+
+  it('should fire remove action', () => {
+    const expectedActions = [{type: types.REMOVE_POST_FROM_FAVORITES, payload: {id: 1}}]
+    const store = mockStore(postsInitialState)
+    store.dispatch(posts.removePostFromFavorites(1))
+    expect(store.getActions()).toEqual(expectedActions)
+  })
 })
 
 

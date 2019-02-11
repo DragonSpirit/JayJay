@@ -1,6 +1,6 @@
 import React from 'react';
 import AuthorsScreen from './';
-
+import sinon from 'sinon'
 import renderer from 'react-test-renderer';
 
 test('empty renders correctly', () => {

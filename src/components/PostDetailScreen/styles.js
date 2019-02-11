@@ -9,13 +9,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
-    fontSize: 16,
+    flex: 0.9,
+    fontSize: 17,
     textAlign: 'center',
     paddingVertical: 10,
   },
   commentButton: {
     width: '100%',
     marginVertical: 10,
+  },
+  headerContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  toggleFavoriteIcon: {
+    flex: 0.1,
   },
 })
 

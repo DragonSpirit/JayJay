@@ -1,13 +1,15 @@
 // @flow
 
 import * as types from '../constants/actionTypes'
-import type { PostsState, Action, Post, ResponsePost } from '../reducers/ReducerTypes'
+import type {Action, Post, PostsState, ResponsePost} from '../reducers/ReducerTypes'
 import uniqBy from 'lodash.uniqby'
+import {sortPostsByNewest} from '../helpers/utils'
 
 export const postsInitialState: PostsState = {
   posts: [],
   favoritePosts: [],
 }
+
 
 export default function postsReducer(state: PostsState = postsInitialState, action: Action): PostsState {
   switch (action.type) {
@@ -15,19 +17,48 @@ export default function postsReducer(state: PostsState = postsInitialState, acti
       const { result, author } = action.payload
       const mappedResult: Array<Post> = mapResponsePostsToInternal(author, result)
       const newPosts = uniqBy([...state.posts, ...mappedResult], 'did').sort((a, b) => b.ts - a.ts)
-      const newState: PostsState = {
+      return {
         ...state,
         posts: newPosts,
       }
-      return newState
     }
     case types.DELETE_AUTHOR: {
       const author = action.payload.toLowerCase()
-      const newState = {
+      return {
         posts: state.posts.filter(post => post.author.toLowerCase() !== author),
         favoritePosts: state.favoritePosts.filter(post => post.author.toLowerCase() !== author),
       }
-      return newState
+    }
+    case types.ADD_POST_TO_FAVORITES: {
+      const newState = {...state}
+      const { id } = action.payload
+      const {favoritePosts} = newState
+      const post = state.posts.filter(post => post.id === id)
+      favoritePosts.push(...post)
+      const posts = state.posts.map(post => {
+        if (post.id === id) {
+          post.isFavorite = true
+        }
+        return post
+      })
+      return {
+        posts,
+        favoritePosts: sortPostsByNewest(favoritePosts),
+      }
+    }
+    case types.REMOVE_POST_FROM_FAVORITES: {
+      const { id } = action.payload
+      const favorites = state.favoritePosts.filter(post => post.id !== id)
+      const posts: Array<Post> = state.posts.map(post => {
+        if (post.id === id) {
+          post.isFavorite = false
+        }
+        return post
+      })
+      return {
+        posts,
+        favoritePosts: favorites,
+      }
     }
     default:
       return state

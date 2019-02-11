@@ -1,5 +1,7 @@
 import reducer, { postsInitialState }  from './posts'
 import * as types from '../constants/actionTypes'
+import type {PostsState} from './ReducerTypes'
+import * as posts from '../actions/posts'
 
 describe('authors reducer', () => {
   it('should return the initial state', () => {
@@ -256,5 +258,95 @@ describe('authors reducer', () => {
       type: types.LOAD_POSTS_SUCCESS,
       payload: payloadTost,
     })).toEqual(expectedState)
+  })
+
+  it('should mark post as favorite', () => {
+    const originalState: PostsState = {
+      posts: [{
+        author: 'test',
+        id: 1,
+        did: 1,
+        title: 'title',
+        text: 'text',
+        ts: 1,
+        url: 'http://mockurl.local',
+        img: '',
+        tags: '',
+        isFavorite: false,
+      }],
+      favoritePosts: []
+    }
+    const expectedState: PostsState = {
+      posts: [{
+        author: 'test',
+        id: 1,
+        did: 1,
+        title: 'title',
+        text: 'text',
+        ts: 1,
+        url: 'http://mockurl.local',
+        img: '',
+        tags: '',
+        isFavorite: true,
+      }],
+      favoritePosts: [{
+        author: 'test',
+        id: 1,
+        did: 1,
+        title: 'title',
+        text: 'text',
+        ts: 1,
+        url: 'http://mockurl.local',
+        img: '',
+        tags: '',
+        isFavorite: true,
+      }]
+    }
+    expect(reducer(originalState, posts.addPostToFavorites(1))).toEqual(expectedState);
+  })
+
+  it('should unmark post as favorite', () => {
+    const originalState: PostsState = {
+      posts: [{
+        author: 'test',
+        id: 1,
+        did: 1,
+        title: 'title',
+        text: 'text',
+        ts: 1,
+        url: 'http://mockurl.local',
+        img: '',
+        tags: '',
+        isFavorite: true,
+      }],
+      favoritePosts: [{
+        author: 'test',
+        id: 1,
+        did: 1,
+        title: 'title',
+        text: 'text',
+        ts: 1,
+        url: 'http://mockurl.local',
+        img: '',
+        tags: '',
+        isFavorite: true,
+      }]
+    }
+    const expectedState: PostsState = {
+      posts: [{
+        author: 'test',
+        id: 1,
+        did: 1,
+        title: 'title',
+        text: 'text',
+        ts: 1,
+        url: 'http://mockurl.local',
+        img: '',
+        tags: '',
+        isFavorite: false,
+      }],
+      favoritePosts: []
+    }
+    expect(reducer(originalState, posts.removePostFromFavorites(1))).toEqual(expectedState);
   })
 })

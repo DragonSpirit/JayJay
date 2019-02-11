@@ -13,7 +13,7 @@ exports[`empty renders correctly 1`] = `
 >
   <TextInput
     onChangeText={[Function]}
-    placeholder="Username"
+    placeholder="Журнал"
     style={
       Object {
         "fontSize": 20,
@@ -150,8 +150,11 @@ exports[`non empty renders correctly 1`] = `
     }
   >
     <TextInput
+      autoCapitalize="none"
+      autoCorrect={false}
       onChangeText={[Function]}
-      placeholder="Username"
+      onSubmitEditing={[Function]}
+      placeholder="Добавить журнал"
       style={
         Array [
           undefined,

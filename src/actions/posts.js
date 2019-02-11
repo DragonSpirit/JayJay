@@ -23,6 +23,20 @@ const loadPostsFailure = (error: Error): Action => ({
   payload: error,
 })
 
+export const addPostToFavorites = (id: number): Action => ({
+  type: types.ADD_POST_TO_FAVORITES,
+  payload: {
+    id,
+  },
+})
+
+export const removePostFromFavorites = (id: number): Action => ({
+  type: types.REMOVE_POST_FROM_FAVORITES,
+  payload: {
+    id,
+  },
+})
+
 export const requestLoadPosts = (author: string) => (dispatch: Dispatch) => {
   dispatch(tryLoadPosts(author))
   dispatch(setPostsLoadingState(true))

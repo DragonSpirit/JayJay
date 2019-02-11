@@ -28,7 +28,7 @@ type State = {
 class AuthorsScreen extends React.PureComponent<Props, State> {
 
   static navigationOptions = {
-    title: 'Авторы',
+    title: 'Журналы',
     tabBarIcon: AuthorsTabIcon,
   }
 
@@ -42,8 +42,8 @@ class AuthorsScreen extends React.PureComponent<Props, State> {
 
   static defaultProps = {
     authors: [],
-    fetchAuthors: () => {},
-    deleteAuthor: () => {},
+    fetchAuthors: (author: string) => {},
+    deleteAuthor: (author: string) => {},
     authorsLoading: false,
   }
 
@@ -88,10 +88,16 @@ class AuthorsScreen extends React.PureComponent<Props, State> {
     this.props.deleteAuthor(author)
   }
 
+  onSubmit = () => {
+    if (!this._isEmpty()) {
+      this.addUser()
+    }
+  }
+
   emptyAuthorView = () => (
     <View style={commonStyles.container}>
       <TextInput
-        placeholder='Username'
+        placeholder='Журнал'
         onChangeText={name => this.setState({name})}
         style={styles.authorInput}
       />
@@ -121,9 +127,12 @@ class AuthorsScreen extends React.PureComponent<Props, State> {
     <View style={styles.authorsContainer}>
       <View style={commonStyles.flexRow}>
         <TextInput
-          placeholder='Username'
+          placeholder='Добавить журнал'
           onChangeText={(name: string) => this.setState({name})}
           style={[styles.welcome, commonStyles.flex]}
+          autoCorrect={false}
+          autoCapitalize={'none'}
+          onSubmitEditing={this.onSubmit}
         />
         <Button title='+'
           onPress={this.addUser}
