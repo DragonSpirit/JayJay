@@ -11,6 +11,6 @@ Project currently is on heavy development
 * [x] Aggregate feed
 * [x] Read single post
 * [x] Offline mode
+* [x] Favorite posts
 * [ ] Load previous posts (pagination)
-* [ ] Favorite posts
 * [ ] Fix xmlrpc on iOS
