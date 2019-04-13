@@ -2,7 +2,6 @@
 
 import React from 'react'
 import { Text, View, FlatList, RefreshControl, TouchableWithoutFeedback, Dimensions } from 'react-native'
-import { array, func, bool, object } from 'prop-types'
 import { FeedTabIcon } from '../TabIcons/FeedTabIcon'
 import { Button, Card, Avatar } from 'react-native-elements'
 import HTML from 'react-native-render-html'
@@ -30,14 +29,6 @@ class FeedScreen extends React.PureComponent<Props, State> {
     title: 'Лента',
     tabBarIcon: FeedTabIcon,
   }
-
-  static propTypes = {
-    authors: array,
-    fetchPosts: func,
-    feed: array,
-    navigation: object,
-    isPostsLoading: bool,
-  };
 
   static defaultProps = {
     authors: [],
@@ -111,13 +102,17 @@ class FeedScreen extends React.PureComponent<Props, State> {
     if (event.nativeEvent.contentOffset.y > Dimensions.get('window').height && !this.state.isUpButtonShowed) {
       this.setState({isUpButtonShowed: true})
     }
+    if (event.nativeEvent.contentOffset.y === 0 && this.state.isUpButtonShowed) {
+      this.setState({isUpButtonShowed: false})
+    }
   }
 
   _scrollToTop = () => {
     this.scrollToTop = true
     this.flatListRef.scrollToIndex({animated: true, index: 0})
-    this.setState({isUpButtonShowed: false})
-    setTimeout(() => {this.scrollToTop = false}, 200)
+    this.setState({isUpButtonShowed: false}, () => {
+      setTimeout(() => {this.scrollToTop = false}, 200)
+    })
   }
 
   render() {

@@ -18,9 +18,7 @@ exports[`AuthorsTabIcon renders correctly 1`] = `
   underlayColor="white"
 >
   <Text
-    accessible={true}
     allowFontScaling={false}
-    ellipsizeMode="tail"
     style={
       Array [
         Object {
@@ -64,9 +62,7 @@ exports[`FavoriteTabIcon renders correctly 1`] = `
   underlayColor="white"
 >
   <Text
-    accessible={true}
     allowFontScaling={false}
-    ellipsizeMode="tail"
     style={
       Array [
         Object {
@@ -110,9 +106,7 @@ exports[`FeedTabIcon renders correctly 1`] = `
   underlayColor="white"
 >
   <Text
-    accessible={true}
     allowFontScaling={false}
-    ellipsizeMode="tail"
     style={
       Array [
         Object {

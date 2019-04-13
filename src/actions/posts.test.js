@@ -22,8 +22,8 @@ describe('posts async actions', () => {
 
   it('should add posts to store if response ok', () => {
     const expectedActions = [
-      { type: types.TRY_LOAD_POSTS, payload: 'test' },
       { type: types.SET_POSTS_LOADING_STATE, payload: true },
+      { type: types.TRY_LOAD_POSTS, payload: 'test' },
       { type: types.LOAD_POSTS_SUCCESS, payload: {author: 'test', result: []} },
       { type: types.SET_POSTS_LOADING_STATE, payload: false },
     ]
@@ -38,8 +38,8 @@ describe('posts async actions', () => {
 
   it('should not add posts if response not ok', () => {
     const expectedActions = [
-      { type: types.TRY_LOAD_POSTS, payload: 'test' },
       { type: types.SET_POSTS_LOADING_STATE, payload: true },
+      { type: types.TRY_LOAD_POSTS, payload: 'test' },
       { type: types.LOAD_POSTS_FAILURE, payload: new Error('loading error') },
       { type: types.SET_POSTS_LOADING_STATE, payload: false },
     ]

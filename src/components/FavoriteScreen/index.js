@@ -2,7 +2,6 @@
 
 import React from 'react'
 import { Text, View, FlatList, TouchableWithoutFeedback, Dimensions } from 'react-native'
-import { array, bool, object } from 'prop-types'
 import { FavoriteTabIcon } from '../TabIcons/FavoriteTabIcon'
 import { Button, Card, Avatar } from 'react-native-elements'
 import HTML from 'react-native-render-html'
@@ -28,12 +27,6 @@ class FavoriteScreen extends React.Component<Props, State> {
     title: 'Избранное',
     tabBarIcon: FavoriteTabIcon,
   }
-
-  static propTypes = {
-    favoritePosts: array,
-    navigation: object,
-    isPostsLoading: bool,
-  };
 
   static defaultProps = {
     favoritePosts: [],

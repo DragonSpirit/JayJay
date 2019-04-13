@@ -38,8 +38,8 @@ export const removePostFromFavorites = (id: number): Action => ({
 })
 
 export const requestLoadPosts = (author: string) => (dispatch: Dispatch) => {
-  dispatch(tryLoadPosts(author))
   dispatch(setPostsLoadingState(true))
+  dispatch(tryLoadPosts(author))
   return getEventsFromServer(author)
     .then(value => {
       value && dispatch(loadPostsSuccess(author, value.events))

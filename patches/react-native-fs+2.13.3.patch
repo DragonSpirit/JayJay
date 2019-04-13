@@ -1,0 +1,28 @@
+diff --git a/node_modules/react-native-fs/.DS_Store b/node_modules/react-native-fs/.DS_Store
+new file mode 100644
+index 0000000..f0d011a
+Binary files /dev/null and b/node_modules/react-native-fs/.DS_Store differ
+diff --git a/node_modules/react-native-fs/android/.DS_Store b/node_modules/react-native-fs/android/.DS_Store
+new file mode 100644
+index 0000000..16d875f
+Binary files /dev/null and b/node_modules/react-native-fs/android/.DS_Store differ
+diff --git a/node_modules/react-native-fs/android/build.gradle b/node_modules/react-native-fs/android/build.gradle
+index 47ae512..1feddbc 100644
+--- a/node_modules/react-native-fs/android/build.gradle
++++ b/node_modules/react-native-fs/android/build.gradle
+@@ -15,12 +15,12 @@ buildscript {
+ apply plugin: 'com.android.library'
+ 
+ android {
+-    compileSdkVersion safeExtGet('compileSdkVersion', 26)
+-    buildToolsVersion safeExtGet('buildToolsVersion', '26.0.3')
++    compileSdkVersion safeExtGet('compileSdkVersion', 28)
++    buildToolsVersion safeExtGet('buildToolsVersion', '28.0.3')
+ 
+     defaultConfig {
+         minSdkVersion safeExtGet('minSdkVersion', 16)
+-        targetSdkVersion safeExtGet('targetSdkVersion', 26)
++        targetSdkVersion safeExtGet('targetSdkVersion', 28)
+         versionCode 1
+         versionName "1.0"
+     }

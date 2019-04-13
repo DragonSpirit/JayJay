@@ -8,13 +8,8 @@ import { object, func } from 'prop-types'
 import { Button, Icon } from 'react-native-elements'
 import styles from './styles'
 import { commonStyles } from '../common.styles'
-import HTML from 'react-native-render-html'
-import {
-  ANIMATIONS_SLIDE,
-  CustomTabs,
-} from 'react-native-custom-tabs'
-
-const postText = {fontSize: 16}
+import { ANIMATIONS_SLIDE, CustomTabs } from 'react-native-custom-tabs'
+import HTMLView from 'react-native-htmlview'
 
 class PostDetailScreen extends React.PureComponent {
 
@@ -89,14 +84,9 @@ class PostDetailScreen extends React.PureComponent {
             color={isFavorite(item.id) ? '#184fff' : '#000'}
             onPress={() => {this.toggleFavorite(item.id)}} />
         </View>
-        <ScrollView style={[commonStyles.flex, styles.scrollViewStyle]}
-          contentContaierStyle={styles.scrollViewContentStyle}>
-          <HTML html={item.text}
-            imagesInitialDimensions={{width: 200, height: 200}}
-            onLinkPress={(event, link) => {this.openLink(link)}}
-            textSelectable
-            baseFontStyle={postText}
-          />
+        <ScrollView style={[commonStyles.flex, styles.scrollViewStyle]}>
+          <HTMLView value={item.text}
+            onLinkPress={link => {this.openLink(link)}} addLineBreaks={false} />
         </ScrollView>
         <Button title='Комментарии'
           onPress={this.openComments}

@@ -12,12 +12,13 @@ import common from './src/reducers/common'
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
 import { persistStore, persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
 import { PersistGate } from 'redux-persist/integration/react'
+import FSStorage from 'redux-persist-fs-storage'
 
 const persistConfig = {
   key: 'root',
-  storage,
+  storage: FSStorage(),
+  keyPrefix: '',
   blacklist: ['common'],
 }
 

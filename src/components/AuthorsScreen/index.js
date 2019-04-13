@@ -8,7 +8,6 @@ import {
   Alert,
 } from 'react-native'
 import { AuthorsTabIcon } from '../TabIcons/AuthorsTabIcon'
-import { array, func, bool } from 'prop-types'
 import { Button, ListItem, Icon } from 'react-native-elements'
 import styles from './styles'
 import { commonStyles } from '../common.styles'
@@ -31,14 +30,6 @@ class AuthorsScreen extends React.PureComponent<Props, State> {
     title: 'Журналы',
     tabBarIcon: AuthorsTabIcon,
   }
-
-  static propTypes = {
-    authors: array,
-    fetchAuthors: func,
-    deleteAuthor: func,
-    fetchPosts: func,
-    authorsLoading: bool,
-  };
 
   static defaultProps = {
     authors: [],
