@@ -36,6 +36,7 @@ exports[`AuthorsTabIcon renders correctly 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
         },
+        Object {},
       ]
     }
   >
@@ -80,6 +81,7 @@ exports[`FavoriteTabIcon renders correctly 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
         },
+        Object {},
       ]
     }
   >
@@ -124,6 +126,7 @@ exports[`FeedTabIcon renders correctly 1`] = `
           "fontStyle": "normal",
           "fontWeight": "normal",
         },
+        Object {},
       ]
     }
   >
