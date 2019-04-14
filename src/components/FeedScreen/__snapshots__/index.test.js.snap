@@ -125,3 +125,321 @@ exports[`renders correctly 1`] = `
   </View>
 </View>
 `;
+
+exports[`renders correctly with empty feed but exists authors 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#F5FCFF",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "fontSize": 20,
+        "margin": 10,
+        "textAlign": "center",
+      }
+    }
+  >
+    Возможно возникли проблемы с загрузкой ленты
+  </Text>
+  <View
+    style={
+      Array [
+        Object {
+          "marginLeft": 15,
+          "marginRight": 15,
+        },
+        undefined,
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={null}
+    >
+      <View
+        pointerEvents="box-only"
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#9E9E9E",
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "padding": 19,
+            },
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            Object {
+              "padding": 12,
+            },
+            undefined,
+            undefined,
+            undefined,
+            Array [
+              Object {
+                "backgroundColor": "rgba(92, 99,216, 1)",
+                "borderColor": "transparent",
+                "borderRadius": 5,
+                "borderWidth": 0,
+              },
+              Object {
+                "height": 45,
+                "width": 300,
+              },
+            ],
+            undefined,
+            undefined,
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {},
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              Array [
+                Object {
+                  "color": "white",
+                  "fontSize": 20,
+                },
+                undefined,
+                Object {
+                  "fontSize": 17.5,
+                },
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+              ],
+            ]
+          }
+        >
+          Обновить
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders correctly with non empty feed and authors 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#F5FCFF",
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <RCTScrollView
+      data={
+        Array [
+          Object {
+            "author": "test",
+            "did": 1,
+            "id": 1,
+            "isFavorite": false,
+            "tags": "tag",
+            "text": "Test",
+            "title": "Test",
+            "ts": 1,
+            "url": "local.url",
+          },
+        ]
+      }
+      disableVirtualization={false}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onContentSizeChange={[Function]}
+      onEndReachedThreshold={2}
+      onLayout={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      refreshControl={
+        <RefreshControlMock
+          onRefresh={[Function]}
+        />
+      }
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={64}
+      stickyHeaderIndices={Array []}
+      updateCellsBatchingPeriod={50}
+      viewabilityConfigCallbackPairs={Array []}
+      windowSize={21}
+    >
+      <RCTRefreshControl />
+      <View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            accessible={true}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "white",
+                  "borderColor": "#e1e8ee",
+                  "borderWidth": 1,
+                  "margin": 15,
+                  "marginBottom": 0,
+                  "padding": 15,
+                  "shadowColor": "rgba(0,0,0, .2)",
+                  "shadowOffset": Object {
+                    "height": 0,
+                    "width": 0,
+                  },
+                  "shadowOpacity": 1,
+                  "shadowRadius": 1,
+                },
+                null,
+                undefined,
+              ]
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  undefined,
+                  undefined,
+                ]
+              }
+            >
+              <View>
+                <Text
+                  style={
+                    Array [
+                      Object {},
+                      undefined,
+                      undefined,
+                      undefined,
+                      undefined,
+                      undefined,
+                      undefined,
+                      undefined,
+                      undefined,
+                      undefined,
+                      Array [
+                        Object {
+                          "color": "#43484d",
+                          "fontSize": 17.5,
+                          "fontWeight": "bold",
+                          "marginBottom": 15,
+                          "textAlign": "center",
+                        },
+                        null,
+                        undefined,
+                        undefined,
+                      ],
+                    ]
+                  }
+                >
+                  test 
+ Test
+                </Text>
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "#e1e8ee",
+                        "height": 1,
+                      },
+                      Array [
+                        Object {
+                          "marginBottom": 15,
+                        },
+                        undefined,
+                      ],
+                    ]
+                  }
+                />
+              </View>
+              <View
+                style={Object {}}
+              >
+                <Text
+                  allowFontScaling={true}
+                  selectable={false}
+                  style={
+                    Array [
+                      Object {},
+                      Object {},
+                    ]
+                  }
+                >
+                  <Text
+                    allowFontScaling={true}
+                    style={
+                      Object {
+                        "fontSize": 14,
+                      }
+                    }
+                  >
+                    Test...
+                  </Text>
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;
