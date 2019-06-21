@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "lodash.uniqby": "^4.7.0",
-    "react": "16.6.3",
+    "react": "16.8.6",
     "react-native": "^0.59.4",
     "react-native-custom-tabs": "0.1.7",
     "react-native-elements": "^0.19.1",
@@ -59,7 +59,7 @@
     "patch-package": "^6.1.2",
     "postinstall-postinstall": "^2.0.0",
     "prop-types": "^15.6.2",
-    "react-test-renderer": "16.3.1",
+    "react-test-renderer": "16.8.6",
     "redux-logger": "^3.0.6",
     "redux-mock-store": "^1.5.3",
     "sinon": "^6.1.4"
