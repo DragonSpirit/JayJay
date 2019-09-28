@@ -8,7 +8,6 @@ const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
 describe('authors async actions', () => {
-
   afterEach(() => {
     fetchMock.reset()
     fetchMock.restore()
@@ -17,7 +16,7 @@ describe('authors async actions', () => {
   it('should not fire actions if user already in state', () => {
     const state = { authors: ['test'] }
     const store = mockStore(state)
-    return store.dispatch(actions.requestAddAuthor('test')).catch(error => {
+    return store.dispatch(actions.requestAddAuthor('test')).catch(() => {
       expect(store.getActions()).toEqual([])
     })
   })
@@ -31,14 +30,14 @@ describe('authors async actions', () => {
 
   it('should add user if response is 200', () => {
     const state = { authors: [] }
-    fetchMock.getOnce('https://test.livejournal.com',  { status: 200} )
+    fetchMock.getOnce('https://test.livejournal.com', { status: 200 })
 
     const expectedActions = [
-        { type: types.TRY_ADD_AUTHOR, payload: 'test' },
-        { type: types.SET_AUTHORS_LOADING_STATE, payload: true },
-        { type: types.ADD_AUTHOR_SUCCESS, payload: 'test' },
-        { type: types.SET_AUTHORS_LOADING_STATE, payload: false },
-      ]
+      { type: types.TRY_ADD_AUTHOR, payload: 'test' },
+      { type: types.SET_AUTHORS_LOADING_STATE, payload: true },
+      { type: types.ADD_AUTHOR_SUCCESS, payload: 'test' },
+      { type: types.SET_AUTHORS_LOADING_STATE, payload: false },
+    ]
 
     const store = mockStore(state)
 
@@ -49,14 +48,13 @@ describe('authors async actions', () => {
 
   it('should throw "unknown user" if response is 404', () => {
     const state = { authors: [] }
-    fetchMock.getOnce('https://test.livejournal.com',  { status: 404 })
+    fetchMock.getOnce('https://test.livejournal.com', { status: 404 })
 
     const store = mockStore(state)
 
     const update = store.dispatch(actions.requestAddAuthor('test'))
     return expect(update).rejects.toThrow('unknown user')
   })
-
 })
 
 describe('authors sync actions', () => {
@@ -70,7 +68,7 @@ describe('authors sync actions', () => {
 
   it('should fire clear action', () => {
     const expectedActions = [{ type: types.CLEAR_AUTHORS }]
-    const state = {authors: []}
+    const state = { authors: [] }
     const store = mockStore(state)
     store.dispatch(actions.clearAuthors())
     expect(store.getActions()).toEqual(expectedActions)

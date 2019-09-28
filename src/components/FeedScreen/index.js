@@ -1,15 +1,23 @@
 // @flow
 
 import React from 'react'
-import { Text, View, FlatList, RefreshControl, TouchableWithoutFeedback, Dimensions } from 'react-native'
-import { FeedTabIcon } from '../TabIcons/FeedTabIcon'
+import {
+  Text,
+  View,
+  FlatList,
+  RefreshControl,
+  TouchableWithoutFeedback,
+  Dimensions,
+} from 'react-native'
 import { Button, Card, Avatar } from 'react-native-elements'
 import HTML from 'react-native-render-html'
+import { FeedTabIcon } from '../TabIcons/FeedTabIcon'
 import { parseTitle } from '../../helpers/StringUtil'
 import styles from './styles'
 import { commonStyles } from '../common.styles'
+
+import type { RefObject } from 'react-native/Libraries/Renderer/shims/ReactTypes'
 import type { Post } from '../../reducers/ReducerTypes'
-import type {RefObject} from 'react-native/Libraries/Renderer/shims/ReactTypes'
 
 type Props = {
   authors: Array<string>,
@@ -20,11 +28,10 @@ type Props = {
 }
 
 type State = {
-  isUpButtonShowed: boolean
+  isUpButtonShowed: boolean,
 }
 
 class FeedScreen extends React.PureComponent<Props, State> {
-
   static navigationOptions = {
     title: 'Лента',
     tabBarIcon: FeedTabIcon,
@@ -34,8 +41,8 @@ class FeedScreen extends React.PureComponent<Props, State> {
     authors: [],
   }
 
-  flatListRef: RefObject = null;
-  scrollToTop = false;
+  flatListRef: RefObject = null
+  scrollToTop = false
 
   constructor(props: Props) {
     super(props)
@@ -46,24 +53,24 @@ class FeedScreen extends React.PureComponent<Props, State> {
 
   emptyAuthorView = (): React$Element<any> => (
     <View style={commonStyles.container}>
-      <Text style={styles.welcome}>
-          Похоже на то, что вы никого не выбрали для отслеживания
-      </Text>
-      <Button title='Выбрать пользователя'
+      <Text style={styles.welcome}>Похоже на то, что вы никого не выбрали для отслеживания</Text>
+      <Button
+        title='Выбрать пользователя'
         onPress={() => this.props.navigation.navigate('Authors')}
-        buttonStyle={[commonStyles.buttonStyleCommon, commonStyles.buttonStyleBig]} />
+        buttonStyle={[commonStyles.buttonStyleCommon, commonStyles.buttonStyleBig]}
+      />
     </View>
   )
 
   reloadPostsView = () => (
     <View style={commonStyles.container}>
-      <Text style={styles.welcome}>
-          Возможно возникли проблемы с загрузкой ленты
-      </Text>
-      <Button title='Обновить'
+      <Text style={styles.welcome}>Возможно возникли проблемы с загрузкой ленты</Text>
+      <Button
+        title='Обновить'
         onPress={this._onRefresh}
         loading={this.props.isPostsLoading}
-        buttonStyle={[commonStyles.buttonStyleCommon, commonStyles.buttonStyleBig]} />
+        buttonStyle={[commonStyles.buttonStyleCommon, commonStyles.buttonStyleBig]}
+      />
     </View>
   )
 
@@ -74,12 +81,10 @@ class FeedScreen extends React.PureComponent<Props, State> {
     })
   }
 
-  _renderItem = ({item}) => {
+  _renderItem = ({ item }) => {
     return (
       <TouchableWithoutFeedback onPress={() => this.props.navigation.navigate('Details', item)}>
-        <Card
-          title={`${item.author} \n ${item.title}`}
-          image={item.img ? {uri: item.img} : null}>
+        <Card title={`${item.author} \n ${item.title}`} image={item.img ? { uri: item.img } : null}>
           <HTML html={`${parseTitle(item.text)}...`} style={styles.feedText} />
         </Card>
       </TouchableWithoutFeedback>
@@ -99,60 +104,61 @@ class FeedScreen extends React.PureComponent<Props, State> {
     if (this.scrollToTop) {
       return
     }
-    if (event.nativeEvent.contentOffset.y > Dimensions.get('window').height && !this.state.isUpButtonShowed) {
-      this.setState({isUpButtonShowed: true})
+    if (
+      event.nativeEvent.contentOffset.y > Dimensions.get('window').height &&
+      !this.state.isUpButtonShowed
+    ) {
+      this.setState({ isUpButtonShowed: true })
     }
     if (event.nativeEvent.contentOffset.y === 0 && this.state.isUpButtonShowed) {
-      this.setState({isUpButtonShowed: false})
+      this.setState({ isUpButtonShowed: false })
     }
   }
 
   _scrollToTop = () => {
     this.scrollToTop = true
-    this.flatListRef.scrollToIndex({animated: true, index: 0})
-    this.setState({isUpButtonShowed: false}, () => {
-      setTimeout(() => {this.scrollToTop = false}, 200)
+    this.flatListRef.scrollToIndex({ animated: true, index: 0 })
+    this.setState({ isUpButtonShowed: false }, () => {
+      setTimeout(() => {
+        this.scrollToTop = false
+      }, 200)
     })
   }
 
   render() {
-    const {
-      authors,
-      feed,
-    } = this.props
-    if (authors.length === 0)
-      return this.emptyAuthorView()
-    if (feed.length === 0)
-      return this.reloadPostsView()
+    const { authors, feed } = this.props
+    if (authors.length === 0) return this.emptyAuthorView()
+    if (feed.length === 0) return this.reloadPostsView()
     return (
       <View style={commonStyles.flex}>
         <View style={commonStyles.container}>
           <FlatList
-            ref={ref => {this.flatListRef = ref}}
+            ref={ref => {
+              this.flatListRef = ref
+            }}
             data={feed}
             renderItem={this._renderItem}
             onScroll={this._onScroll}
             scrollEventThrottle={64}
             refreshControl={
-              <RefreshControl
-                refreshing={this.props.isPostsLoading}
-                onRefresh={this._onRefresh}
-              />
+              <RefreshControl refreshing={this.props.isPostsLoading} onRefresh={this._onRefresh} />
             }
             keyExtractor={this._keyExtractor}
           />
         </View>
-        {this.state.isUpButtonShowed ?
+        {this.state.isUpButtonShowed ? (
           <View style={styles.scrollToTopView}>
-            <Avatar onPress={this._scrollToTop}
+            <Avatar
+              onPress={this._scrollToTop}
               rounded
-              icon={{name: 'arrow-drop-up'}}
+              icon={{ name: 'arrow-drop-up' }}
               width={40}
               height={40}
             />
-          </View> : null
-        }
-      </View>)
+          </View>
+        ) : null}
+      </View>
+    )
   }
 }
 

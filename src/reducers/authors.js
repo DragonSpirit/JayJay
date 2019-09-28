@@ -1,11 +1,15 @@
 // @flow
 
 import * as types from '../constants/actionTypes'
+
 import type { AuthorsState, Action } from '../reducers/ReducerTypes'
 
 export const authorsInitialState: AuthorsState = []
 
-export default function authorsReducer(state: AuthorsState = authorsInitialState, action: Action): AuthorsState {
+export default function authorsReducer(
+  state: AuthorsState = authorsInitialState,
+  action: Action,
+): AuthorsState {
   switch (action.type) {
     case types.ADD_AUTHOR_SUCCESS:
       return [...state, action.payload.toLowerCase()]

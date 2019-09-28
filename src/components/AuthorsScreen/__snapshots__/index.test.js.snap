@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`empty renders correctly 1`] = `
+exports[`AuthorsScreen empty renders correctly 1`] = `
 <View
   style={
     Object {
@@ -89,7 +89,7 @@ exports[`empty renders correctly 1`] = `
 </View>
 `;
 
-exports[`non empty renders correctly 1`] = `
+exports[`AuthorsScreen non empty renders correctly 1`] = `
 <View
   style={
     Object {

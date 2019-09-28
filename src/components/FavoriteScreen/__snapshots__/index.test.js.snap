@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`FeedScreen renders correctly 1`] = `
 <View
   style={
     Object {
@@ -79,7 +79,7 @@ exports[`renders correctly 1`] = `
 </View>
 `;
 
-exports[`renders correctly with empty feed but exists authors 1`] = `
+exports[`FeedScreen renders correctly with empty feed but exists authors 1`] = `
 <View
   style={
     Object {
@@ -158,7 +158,7 @@ exports[`renders correctly with empty feed but exists authors 1`] = `
 </View>
 `;
 
-exports[`renders correctly with non empty feed and authors 1`] = `
+exports[`FeedScreen renders correctly with non empty feed and authors 1`] = `
 <View
   style={
     Object {

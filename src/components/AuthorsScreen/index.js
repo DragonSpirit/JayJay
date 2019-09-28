@@ -1,14 +1,9 @@
 // @flow
 
 import React from 'react'
-import {
-  View,
-  TextInput,
-  FlatList,
-  Alert,
-} from 'react-native'
-import { AuthorsTabIcon } from '../TabIcons/AuthorsTabIcon'
+import { View, TextInput, FlatList, Alert } from 'react-native'
 import { Button, ListItem, Icon } from 'react-native-elements'
+import { AuthorsTabIcon } from '../TabIcons/AuthorsTabIcon'
 import styles from './styles'
 import { commonStyles } from '../common.styles'
 
@@ -25,7 +20,6 @@ type State = {
 }
 
 class AuthorsScreen extends React.PureComponent<Props, State> {
-
   static navigationOptions = {
     title: 'Журналы',
     tabBarIcon: AuthorsTabIcon,
@@ -33,8 +27,8 @@ class AuthorsScreen extends React.PureComponent<Props, State> {
 
   static defaultProps = {
     authors: [],
-    fetchAuthors: (author: string) => {},
-    deleteAuthor: (author: string) => {},
+    fetchAuthors: () => {},
+    deleteAuthor: () => {},
     authorsLoading: false,
   }
 
@@ -47,27 +41,19 @@ class AuthorsScreen extends React.PureComponent<Props, State> {
   }
 
   addUser = (): void => {
-    this.props.fetchAuthors(this.state.name)
+    this.props
+      .fetchAuthors(this.state.name)
       .then(this.props.fetchPosts(this.state.name))
       .catch((error: Error) => {
         switch (error.message) {
           case 'unknown user':
-            Alert.alert(
-              'Ошибка',
-              'Такого пользователя скорее всего не существует',
-            )
+            Alert.alert('Ошибка', 'Такого пользователя скорее всего не существует')
             break
           case 'duplicate users':
-            Alert.alert(
-              'Ошибка',
-              'Такой пользователь уже находится в списке отслеживаемых',
-            )
+            Alert.alert('Ошибка', 'Такой пользователь уже находится в списке отслеживаемых')
             break
           default:
-            Alert.alert(
-              'Ошибка',
-              'Неизвестная ошибка, попробуйте позже',
-            )
+            Alert.alert('Ошибка', 'Неизвестная ошибка, попробуйте позже')
             break
         }
       })
@@ -85,30 +71,29 @@ class AuthorsScreen extends React.PureComponent<Props, State> {
     }
   }
 
+  handleChangeName = (name: string) => this.setState({ name })
+
   emptyAuthorView = () => (
     <View style={commonStyles.container}>
       <TextInput
         placeholder='Журнал'
-        onChangeText={name => this.setState({name})}
+        onChangeText={this.handleChangeName}
         style={styles.authorInput}
       />
-      <Button title='Добавить пользователя'
+      <Button
+        title='Добавить пользователя'
         onPress={this.addUser}
         buttonStyle={[commonStyles.buttonStyleCommon, commonStyles.buttonStyleBig]}
         loading={this.props.authorsLoading}
-        disabled={this._isEmpty()} />
+        disabled={this._isEmpty()}
+      />
     </View>
   )
 
   renderAuthorsItem = (data: Object) => (
     <ListItem
       title={data.item}
-      rightIcon={
-        <Icon name='delete'
-          color='#000'
-          onPress={() => this.deleteUser(data.item)}
-        />
-      }
+      rightIcon={<Icon name='delete' color='#000' onPress={() => this.deleteUser(data.item)} />}
     />
   )
 
@@ -119,17 +104,19 @@ class AuthorsScreen extends React.PureComponent<Props, State> {
       <View style={commonStyles.flexRow}>
         <TextInput
           placeholder='Добавить журнал'
-          onChangeText={(name: string) => this.setState({name})}
+          onChangeText={this.handleChangeName}
           style={[styles.welcome, commonStyles.flex]}
           autoCorrect={false}
           autoCapitalize={'none'}
           onSubmitEditing={this.onSubmit}
         />
-        <Button title='+'
+        <Button
+          title='+'
           onPress={this.addUser}
           buttonStyle={[commonStyles.buttonStyleCommon]}
           loading={this.props.authorsLoading}
-          disabled={this._isEmpty()} />
+          disabled={this._isEmpty()}
+        />
       </View>
       <FlatList
         keyExtractor={this._keyExtractor}
@@ -141,9 +128,7 @@ class AuthorsScreen extends React.PureComponent<Props, State> {
   )
 
   render() {
-    const {
-      authors,
-    } = this.props
+    const { authors } = this.props
     if (authors.length === 0) {
       return this.emptyAuthorView()
     }

@@ -1,3 +1,313 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `null`;
+exports[`PostDetailScreen renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "flex": 0.9,
+          "fontSize": 17,
+          "paddingVertical": 10,
+          "textAlign": "center",
+        }
+      }
+    >
+      Test
+    </Text>
+    <View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "justifyContent": "center",
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": "#000",
+                "fontSize": 24,
+              },
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Object {
+                "fontFamily": "FontAwesome",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+          testID="iconIcon"
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+  <RCTScrollView
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        Object {
+          "paddingHorizontal": "5%",
+        },
+      ]
+    }
+  >
+    <View>
+      <View>
+        <Text
+          style={
+            Array [
+              null,
+              null,
+            ]
+          }
+        >
+          Test
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      Object {
+        "borderRadius": 3,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "rgba(92, 99,216, 1)",
+            "borderColor": "transparent",
+            "borderRadius": 5,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "marginVertical": 10,
+            "padding": 8,
+            "width": "100%",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 18,
+              "paddingBottom": 1,
+              "paddingTop": 2,
+              "textAlign": "center",
+            }
+          }
+        >
+          Комментарии
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`PostDetailScreen renders favorite post correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "flex": 0.9,
+          "fontSize": 17,
+          "paddingVertical": 10,
+          "textAlign": "center",
+        }
+      }
+    >
+      Test
+    </Text>
+    <View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "justifyContent": "center",
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": "#184fff",
+                "fontSize": 24,
+              },
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Object {
+                "fontFamily": "FontAwesome",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+          testID="iconIcon"
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+  <RCTScrollView
+    style={
+      Array [
+        Object {
+          "flex": 1,
+        },
+        Object {
+          "paddingHorizontal": "5%",
+        },
+      ]
+    }
+  >
+    <View>
+      <View>
+        <Text
+          style={
+            Array [
+              null,
+              null,
+            ]
+          }
+        >
+          Test
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      Object {
+        "borderRadius": 3,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "rgba(92, 99,216, 1)",
+            "borderColor": "transparent",
+            "borderRadius": 5,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "marginVertical": 10,
+            "padding": 8,
+            "width": "100%",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 18,
+              "paddingBottom": 1,
+              "paddingTop": 2,
+              "textAlign": "center",
+            }
+          }
+        >
+          Комментарии
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

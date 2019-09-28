@@ -1,12 +1,12 @@
 // @flow
 
-import AuthorsScreen from '../components/AuthorsScreen'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import AuthorsScreen from '../components/AuthorsScreen'
 import { requestAddAuthor, deleteAuthor as deleteAction } from '../actions/authors'
+import { requestLoadPosts } from '../actions/posts'
 
 import type { AppState, Dispatch } from '../reducers/ReducerTypes'
-import {requestLoadPosts} from '../actions/posts'
 
 const mapStateToProps = (state: AppState): Object => ({
   authors: state.authors,
@@ -19,6 +19,9 @@ const mapDispatchToProps = (dispatch: Dispatch): Object => ({
   fetchPosts: bindActionCreators(requestLoadPosts, dispatch),
 })
 
-const FeedContainer = connect(mapStateToProps, mapDispatchToProps)(AuthorsScreen)
+const FeedContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(AuthorsScreen)
 
 export default FeedContainer

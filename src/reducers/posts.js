@@ -1,25 +1,28 @@
 // @flow
-
-import * as types from '../constants/actionTypes'
-import type {Action, Post, PostsState, ResponsePost} from '../reducers/ReducerTypes'
 import uniqBy from 'lodash.uniqby'
-import {sortPostsByNewest} from '../helpers/utils'
+import * as types from '../constants/actionTypes'
+import { byNewest } from '../helpers/utils'
+
+import type { Action, Post, PostsState, ResponsePost } from '../reducers/ReducerTypes'
 
 export const postsInitialState: PostsState = {
   posts: [],
   favoritePosts: [],
 }
 
-const storagePeriod = (1000 * 7 * 24 * 60 * 60) * 2 // store for 2 weeks
+const storagePeriod = 7 * 24 * 60 * 60 * 1000 * 2 // store for 2 weeks
 
-export default function postsReducer(state: PostsState = postsInitialState, action: Action): PostsState {
+export default function postsReducer(
+  state: PostsState = postsInitialState,
+  action: Action,
+): PostsState {
   switch (action.type) {
     case types.LOAD_POSTS_SUCCESS: {
       const { result, author } = action.payload
       const date = Date.now()
       const mappedResult: Array<Post> = mapResponsePostsToInternal(author, result)
       const newPosts = uniqBy([...state.posts, ...mappedResult], 'did')
-        .sort((a, b) => b.ts - a.ts)
+        .sort(byNewest)
         .filter((item: Post) => date - item.ts * 1000 <= storagePeriod)
       return {
         ...state,
@@ -34,10 +37,10 @@ export default function postsReducer(state: PostsState = postsInitialState, acti
       }
     }
     case types.ADD_POST_TO_FAVORITES: {
-      const newState = {...state}
+      const newState = { ...state }
       const { id } = action.payload
-      const {favoritePosts} = newState
-      const post = state.posts.filter(post => post.id === id)
+      const { favoritePosts } = newState
+      const post: Array<Post> = state.posts.filter(post => post.id === id)
       favoritePosts.push(...post)
       const posts = state.posts.map(post => {
         if (post.id === id) {
@@ -47,7 +50,7 @@ export default function postsReducer(state: PostsState = postsInitialState, acti
       })
       return {
         posts,
-        favoritePosts: sortPostsByNewest(favoritePosts),
+        favoritePosts: favoritePosts.sort(byNewest),
       }
     }
     case types.REMOVE_POST_FROM_FAVORITES: {
@@ -69,7 +72,10 @@ export default function postsReducer(state: PostsState = postsInitialState, acti
   }
 }
 
-export const mapResponsePostsToInternal = (author: string, posts: Array<ResponsePost>): Array<Post> =>
+export const mapResponsePostsToInternal = (
+  author: string,
+  posts: Array<ResponsePost>,
+): Array<Post> =>
   posts.map((post: ResponsePost) => ({
     author,
     id: post.itemid,

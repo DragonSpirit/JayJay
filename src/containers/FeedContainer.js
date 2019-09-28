@@ -1,10 +1,11 @@
 // @flow
 
-import FeedScreen from '../components/FeedScreen'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import type { AppState, Dispatch } from '../reducers/ReducerTypes'
+import FeedScreen from '../components/FeedScreen'
 import { requestLoadPosts } from '../actions/posts'
+
+import type { AppState, Dispatch } from '../reducers/ReducerTypes'
 
 const mapStateToProps = (state: AppState) => ({
   feed: state.feed.posts,
@@ -16,6 +17,9 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
   fetchPosts: bindActionCreators(requestLoadPosts, dispatch),
 })
 
-const FeedContainer = connect(mapStateToProps, mapDispatchToProps)(FeedScreen)
+const FeedContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(FeedScreen)
 
 export default FeedContainer

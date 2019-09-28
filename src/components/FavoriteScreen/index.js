@@ -2,17 +2,19 @@
 
 import React from 'react'
 import { Text, View, FlatList, TouchableWithoutFeedback, Dimensions } from 'react-native'
-import { FavoriteTabIcon } from '../TabIcons/FavoriteTabIcon'
 import { Button, Card, Avatar } from 'react-native-elements'
 import HTML from 'react-native-render-html'
+import { FavoriteTabIcon } from '../TabIcons/FavoriteTabIcon'
 import { parseTitle } from '../../helpers/StringUtil'
 import styles from './styles'
 import { commonStyles } from '../common.styles'
+
 import type { Post } from '../../reducers/ReducerTypes'
+import type { RefObject } from 'react-native/Libraries/Renderer/shims/ReactTypes'
 
 type State = {
   isUpButtonShowed: boolean,
-  date: Date
+  date: Date,
 }
 
 type Props = {
@@ -22,7 +24,6 @@ type Props = {
 }
 
 class FavoriteScreen extends React.Component<Props, State> {
-
   static navigationOptions = {
     title: 'Избранное',
     tabBarIcon: FavoriteTabIcon,
@@ -32,9 +33,9 @@ class FavoriteScreen extends React.Component<Props, State> {
     favoritePosts: [],
   }
 
-  flatListRef: * = null;
-  scrollToTop: boolean = false;
-  listeners = [];
+  flatListRef: RefObject
+  scrollToTop: boolean = false
+  listeners = []
 
   constructor(props: Props) {
     super(props)
@@ -57,26 +58,26 @@ class FavoriteScreen extends React.Component<Props, State> {
   }
 
   componentWillUnmount(): void {
-    this.listeners.forEach( item => item.remove())
+    this.listeners.forEach(item => item.remove())
   }
+
+  handleClickToFeed = () => this.props.navigation.navigate('Feed')
 
   reloadPostsView = () => (
     <View style={commonStyles.container}>
-      <Text style={styles.welcome}>
-        Список избранного пуст
-      </Text>
-      <Button title='Перейти к постам'
-        onPress={() => this.props.navigation.navigate('Feed')}
-        buttonStyle={[commonStyles.buttonStyleCommon, commonStyles.buttonStyleBig]} />
+      <Text style={styles.welcome}>Список избранного пуст</Text>
+      <Button
+        title='Перейти к постам'
+        onPress={this.handleClickToFeed}
+        buttonStyle={[commonStyles.buttonStyleCommon, commonStyles.buttonStyleBig]}
+      />
     </View>
   )
 
-  _renderItem = ({item}) => {
+  _renderItem = ({ item }) => {
     return (
       <TouchableWithoutFeedback onPress={() => this.props.navigation.navigate('Details', item)}>
-        <Card
-          title={`${item.author} \n ${item.title}`}
-          image={item.img ? {uri: item.img} : null}>
+        <Card title={`${item.author} \n ${item.title}`} image={item.img ? { uri: item.img } : null}>
           <HTML html={`${parseTitle(item.text)}...`} style={styles.feedText} />
         </Card>
       </TouchableWithoutFeedback>
@@ -89,30 +90,33 @@ class FavoriteScreen extends React.Component<Props, State> {
     if (this.scrollToTop) {
       return
     }
-    if (event.nativeEvent.contentOffset.y > Dimensions.get('window').height && !this.state.isUpButtonShowed) {
-      this.setState({isUpButtonShowed: true})
+    if (
+      event.nativeEvent.contentOffset.y > Dimensions.get('window').height &&
+      !this.state.isUpButtonShowed
+    ) {
+      this.setState({ isUpButtonShowed: true })
     }
   }
 
   _scrollToTop = () => {
     this.scrollToTop = true
-    // $FlowFixMe
-    this.flatListRef.scrollToIndex({animated: true, index: 0})
-    this.setState({isUpButtonShowed: false})
-    setTimeout(() => {this.scrollToTop = false}, 200)
+    this.flatListRef.scrollToIndex({ animated: true, index: 0 })
+    this.setState({ isUpButtonShowed: false })
+    setTimeout(() => {
+      this.scrollToTop = false
+    }, 200)
   }
 
   render() {
-    const {
-      favoritePosts,
-    } = this.props
-    if (favoritePosts.length === 0)
-      return this.reloadPostsView()
+    const { favoritePosts } = this.props
+    if (favoritePosts.length === 0) return this.reloadPostsView()
     return (
       <View style={commonStyles.flex}>
         <View style={commonStyles.container}>
           <FlatList
-            ref={ref => {this.flatListRef = ref}}
+            ref={ref => {
+              this.flatListRef = ref
+            }}
             data={favoritePosts}
             renderItem={this._renderItem}
             onScroll={this._onScroll}
@@ -121,17 +125,19 @@ class FavoriteScreen extends React.Component<Props, State> {
             extraData={this.state.date}
           />
         </View>
-        {this.state.isUpButtonShowed ?
+        {this.state.isUpButtonShowed ? (
           <View style={styles.scrollToTopView}>
-            <Avatar onPress={this._scrollToTop}
+            <Avatar
+              onPress={this._scrollToTop}
               rounded
-              icon={{name: 'arrow-drop-up'}}
+              icon={{ name: 'arrow-drop-up' }}
               width={40}
               height={40}
             />
-          </View> : null
-        }
-      </View>)
+          </View>
+        ) : null}
+      </View>
+    )
   }
 }
 

@@ -6,7 +6,8 @@
     "react",
     "react-native",
     "flow-vars",
-    "flowtype"
+    "flowtype",
+    "prettier"
   ],
   "extends": [
     "standard",
@@ -14,7 +15,8 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react-native/all",
-    "plugin:flowtype/recommended"
+    "plugin:flowtype/recommended",
+    "prettier"
   ],
   "env": {
     "browser": true

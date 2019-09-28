@@ -1,9 +1,10 @@
 // @flow
 
 import * as types from '../constants/actionTypes'
-import type { Action, Dispatch } from '../reducers/ReducerTypes'
 import API from '../helpers/API'
 import { setPostsLoadingState } from './common'
+
+import type { Action, Dispatch } from '../reducers/ReducerTypes'
 
 const tryLoadPosts = (author: string): Action => ({
   type: types.TRY_LOAD_POSTS,
@@ -54,16 +55,19 @@ export const requestLoadPosts = (author: string) => (dispatch: Dispatch) => {
 
 export const getEventsFromServer = (author: string) => {
   return new Promise((resolve, reject) => {
-    API.getevents({
-      journal: author,
-      auth_method: 'noauth',
-      selecttype: 'lastn',
-      howmany: 20,
-    }, (error: Error, value) => {
-      if (error) {
-        reject(error)
-      }
-      resolve(value)
-    })
+    API.getevents(
+      {
+        journal: author,
+        auth_method: 'noauth',
+        selecttype: 'lastn',
+        howmany: 20,
+      },
+      (error: Error, value) => {
+        if (error) {
+          reject(error)
+        }
+        resolve(value)
+      },
+    )
   })
 }

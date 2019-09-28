@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AuthorsTabIcon renders correctly 1`] = `
+exports[`TabIcons AuthorsTabIcon renders correctly 1`] = `
 <View>
   <View
     style={
@@ -76,7 +76,7 @@ exports[`AuthorsTabIcon renders correctly 1`] = `
 </View>
 `;
 
-exports[`FavoriteTabIcon renders correctly 1`] = `
+exports[`TabIcons FavoriteTabIcon renders correctly 1`] = `
 <View>
   <View
     style={
@@ -152,7 +152,7 @@ exports[`FavoriteTabIcon renders correctly 1`] = `
 </View>
 `;
 
-exports[`FeedTabIcon renders correctly 1`] = `
+exports[`TabIcons FeedTabIcon renders correctly 1`] = `
 <View>
   <View
     style={

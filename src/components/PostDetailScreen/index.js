@@ -1,37 +1,37 @@
-import React from 'react'
-import {
-  View,
-  ScrollView,
-  Text,
-} from 'react-native'
-import { object, func } from 'prop-types'
+// @flow
+
+import * as React from 'react'
+import { View, ScrollView, Text } from 'react-native'
 import { Button, Icon } from 'react-native-elements'
-import styles from './styles'
-import { commonStyles } from '../common.styles'
 import { ANIMATIONS_SLIDE, CustomTabs } from 'react-native-custom-tabs'
 import HTMLView from 'react-native-htmlview'
+import styles from './styles'
+import { commonStyles } from '../common.styles'
 
-class PostDetailScreen extends React.PureComponent {
+type Props = {
+  navigation: *,
+  isFavorite: (id: number) => boolean,
+  addToFavorite: (id: number) => void,
+  removeFromFavorite: (id: number) => void,
+}
 
+class PostDetailScreen extends React.PureComponent<Props> {
   static navigationOptions = {
     title: 'Details',
   }
 
-  static propTypes = {
-    navigation: object,
-    isFavorite: func,
-    addToFavorite: func,
-    removeFromFavorite: func,
+  static defaultProps = {
+    addToFavorite: () => {},
+    removeFromFavorite: () => {},
+    isFavorite: () => false,
   }
 
-  constructor(props) {
+  constructor(props: Props) {
     super(props)
   }
 
   openComments = () => {
-    const {
-      navigation,
-    } = this.props
+    const { navigation } = this.props
     const item = navigation && navigation.state && navigation.state.params
     CustomTabs.openURL(`${item.url}#comments`, {
       toolbarColor: '#607D8B',
@@ -46,7 +46,7 @@ class PostDetailScreen extends React.PureComponent {
     })
   }
 
-  openLink = link => {
+  openLink = (link: string) => {
     CustomTabs.openURL(link, {
       toolbarColor: '#607D8B',
       enableUrlBarHiding: true,
@@ -57,8 +57,8 @@ class PostDetailScreen extends React.PureComponent {
     })
   }
 
-  toggleFavorite = id => {
-    const {isFavorite, addToFavorite, removeFromFavorite} = this.props
+  toggleFavorite = (id: number) => {
+    const { isFavorite, addToFavorite, removeFromFavorite } = this.props
     if (isFavorite(id)) {
       removeFromFavorite(id)
     } else {
@@ -67,10 +67,7 @@ class PostDetailScreen extends React.PureComponent {
   }
 
   render() {
-    const {
-      navigation,
-      isFavorite,
-    } = this.props
+    const { navigation, isFavorite } = this.props
     const item = navigation && navigation.state && navigation.state.params
     return item ? (
       <View style={commonStyles.flex}>
@@ -82,19 +79,28 @@ class PostDetailScreen extends React.PureComponent {
             underlayColor={'transparent'}
             style={styles.toggleFavoriteIcon}
             color={isFavorite(item.id) ? '#184fff' : '#000'}
-            onPress={() => {this.toggleFavorite(item.id)}} />
+            onPress={() => {
+              this.toggleFavorite(item.id)
+            }}
+          />
         </View>
         <ScrollView style={[commonStyles.flex, styles.scrollViewStyle]}>
-          <HTMLView value={item.text}
-            onLinkPress={link => {this.openLink(link)}} addLineBreaks={false} />
+          <HTMLView
+            value={item.text}
+            onLinkPress={link => {
+              this.openLink(link)
+            }}
+            addLineBreaks={false}
+          />
         </ScrollView>
-        <Button title='Комментарии'
+        <Button
+          title='Комментарии'
           onPress={this.openComments}
           buttonStyle={[commonStyles.buttonStyleCommon, styles.commentButton]}
         />
       </View>
     ) : null
   }
-
 }
+
 export default PostDetailScreen

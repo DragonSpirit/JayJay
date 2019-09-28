@@ -1,4 +1,4 @@
-import reducer, { commonInitialState }  from './common'
+import reducer, { commonInitialState } from './common'
 import * as types from '../constants/actionTypes'
 
 describe('common reducer', () => {
@@ -12,10 +12,12 @@ describe('common reducer', () => {
       authorsLoading: true,
       postsLoading: false,
     }
-    expect(reducer(state, {
-      type: types.SET_AUTHORS_LOADING_STATE,
-      payload: true
-    })).toEqual(expectedState)
+    expect(
+      reducer(state, {
+        type: types.SET_AUTHORS_LOADING_STATE,
+        payload: true,
+      }),
+    ).toEqual(expectedState)
   })
 
   it('should handle update posts loading', () => {
@@ -24,9 +26,11 @@ describe('common reducer', () => {
       authorsLoading: false,
       postsLoading: true,
     }
-    expect(reducer(state, {
-      type: types.SET_POSTS_LOADING_STATE,
-      payload: true
-    })).toEqual(expectedState)
+    expect(
+      reducer(state, {
+        type: types.SET_POSTS_LOADING_STATE,
+        payload: true,
+      }),
+    ).toEqual(expectedState)
   })
 })

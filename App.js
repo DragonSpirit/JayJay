@@ -1,19 +1,15 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import {
-  createStore,
-  applyMiddleware,
-  combineReducers,
-} from 'redux'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { RootNavigation } from './src/navigator/AppNavigator'
+import { persistStore, persistReducer } from 'redux-persist'
+import thunk from 'redux-thunk'
+import logger from 'redux-logger'
+import { PersistGate } from 'redux-persist/integration/react'
+import FSStorage from 'redux-persist-fs-storage'
 import authors from './src/reducers/authors'
 import posts from './src/reducers/posts'
 import common from './src/reducers/common'
-import thunk from 'redux-thunk'
-import logger from 'redux-logger'
-import { persistStore, persistReducer } from 'redux-persist'
-import { PersistGate } from 'redux-persist/integration/react'
-import FSStorage from 'redux-persist-fs-storage'
 
 const persistConfig = {
   key: 'root',
@@ -28,9 +24,7 @@ const AppReducer = combineReducers({
   common,
 })
 
-const middlewares = [
-  thunk,
-]
+const middlewares = [thunk]
 
 if (__DEV__) {
   middlewares.push(logger)
