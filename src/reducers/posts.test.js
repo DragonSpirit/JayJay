@@ -3,7 +3,16 @@ import * as types from '../constants/actionTypes'
 import type {PostsState} from './ReducerTypes'
 import * as posts from '../actions/posts'
 
-describe('authors reducer', () => {
+describe('posts reducer', () => {
+  beforeEach(() => {
+    this.timestamp = 1506430000000
+    global.Date.now = jest.fn().mockImplementation(() => this.timestamp)
+  })
+
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
+
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual(postsInitialState)
   })

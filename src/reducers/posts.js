@@ -10,16 +10,17 @@ export const postsInitialState: PostsState = {
   favoritePosts: [],
 }
 
+const storagePeriod = (1000 * 7 * 24 * 60 * 60) * 2 // store for 2 weeks
 
 export default function postsReducer(state: PostsState = postsInitialState, action: Action): PostsState {
   switch (action.type) {
     case types.LOAD_POSTS_SUCCESS: {
       const { result, author } = action.payload
-      // const date = +new Date()
+      const date = Date.now()
       const mappedResult: Array<Post> = mapResponsePostsToInternal(author, result)
       const newPosts = uniqBy([...state.posts, ...mappedResult], 'did')
         .sort((a, b) => b.ts - a.ts)
-        // .filter((item: Post) => date - item.did <= (1000 * 7 * 24 * 60 * 60) * 2) // store for 2 weeks
+        .filter((item: Post) => date - item.ts * 1000 <= storagePeriod)
       return {
         ...state,
         posts: newPosts,

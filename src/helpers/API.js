@@ -1,7 +1,7 @@
 import xmlrpc from 'react-native-xmlrpc'
-const client = new xmlrpc('https://www.livejournal.com/interface/xmlrpc')
+export const client = new xmlrpc('https://www.livejournal.com/interface/xmlrpc')
 
-var methods = [
+export const methods = [
   'checkfriends',
   'consolecommand',
   'editevent',
@@ -26,14 +26,10 @@ var methods = [
 
 const API = {}
 
-methods.forEach(function (method) {
-  API[method] = function (params, callback) {
-
+methods.forEach(method => {
+  API[method] = (params, callback) => {
     params.ver = params.ver || 1
-
-    client.call('LJ.XMLRPC.' + method, [params], (err, value) => {
-      callback(err, value)
-    })
+    client.call('LJ.XMLRPC.' + method, [params], callback)
   }
 })
 

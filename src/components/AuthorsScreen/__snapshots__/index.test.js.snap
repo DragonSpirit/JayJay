@@ -26,15 +26,9 @@ exports[`empty renders correctly 1`] = `
   />
   <View
     style={
-      Array [
-        Object {
-          "marginLeft": 15,
-          "marginRight": 15,
-        },
-        undefined,
-        undefined,
-        undefined,
-      ]
+      Object {
+        "borderRadius": 3,
+      }
     }
   >
     <View
@@ -46,80 +40,45 @@ exports[`empty renders correctly 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={null}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
     >
       <View
-        pointerEvents="box-only"
         style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#9E9E9E",
-              "flexDirection": "row",
-              "justifyContent": "center",
-              "padding": 19,
-            },
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            Object {
-              "padding": 12,
-            },
-            undefined,
-            undefined,
-            undefined,
-            Array [
-              Object {
-                "backgroundColor": "rgba(92, 99,216, 1)",
-                "borderColor": "transparent",
-                "borderRadius": 5,
-                "borderWidth": 0,
-              },
-              Object {
-                "height": 45,
-                "width": 300,
-              },
-            ],
-            Object {
-              "backgroundColor": "#dadee0",
-            },
-            undefined,
-          ]
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "hsl(208, 8%, 90%)",
+            "borderColor": "transparent",
+            "borderRadius": 5,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "height": 45,
+            "justifyContent": "center",
+            "padding": 8,
+            "width": 300,
+          }
         }
       >
         <Text
           style={
-            Array [
-              Object {},
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 20,
-                },
-                undefined,
-                Object {
-                  "fontSize": 17.5,
-                },
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-              ],
-            ]
+            Object {
+              "color": Object {
+                "color": Array [
+                  208,
+                  8,
+                  63,
+                ],
+                "model": "hsl",
+                "valpha": 1,
+              },
+              "fontSize": 18,
+              "paddingBottom": 1,
+              "paddingTop": 2,
+              "textAlign": "center",
+            }
           }
         >
           Добавить пользователя
@@ -163,15 +122,9 @@ exports[`non empty renders correctly 1`] = `
     />
     <View
       style={
-        Array [
-          Object {
-            "marginLeft": 15,
-            "marginRight": 15,
-          },
-          undefined,
-          undefined,
-          undefined,
-        ]
+        Object {
+          "borderRadius": 3,
+        }
       }
     >
       <View
@@ -183,76 +136,43 @@ exports[`non empty renders correctly 1`] = `
         onResponderTerminate={[Function]}
         onResponderTerminationRequest={[Function]}
         onStartShouldSetResponder={[Function]}
-        style={null}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
       >
         <View
-          pointerEvents="box-only"
           style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#9E9E9E",
-                "flexDirection": "row",
-                "justifyContent": "center",
-                "padding": 19,
-              },
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              Object {
-                "padding": 12,
-              },
-              undefined,
-              undefined,
-              undefined,
-              Array [
-                Object {
-                  "backgroundColor": "rgba(92, 99,216, 1)",
-                  "borderColor": "transparent",
-                  "borderRadius": 5,
-                  "borderWidth": 0,
-                },
-              ],
-              Object {
-                "backgroundColor": "#dadee0",
-              },
-              undefined,
-            ]
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "hsl(208, 8%, 90%)",
+              "borderColor": "transparent",
+              "borderRadius": 5,
+              "borderWidth": 0,
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "padding": 8,
+            }
           }
         >
           <Text
             style={
-              Array [
-                Object {},
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                Array [
-                  Object {
-                    "color": "white",
-                    "fontSize": 20,
-                  },
-                  undefined,
-                  Object {
-                    "fontSize": 17.5,
-                  },
-                  undefined,
-                  undefined,
-                  undefined,
-                  undefined,
-                  undefined,
-                ],
-              ]
+              Object {
+                "color": Object {
+                  "color": Array [
+                    208,
+                    8,
+                    63,
+                  ],
+                  "model": "hsl",
+                  "valpha": 1,
+                },
+                "fontSize": 18,
+                "paddingBottom": 1,
+                "paddingTop": 2,
+                "textAlign": "center",
+              }
             }
           >
             +
@@ -296,35 +216,16 @@ exports[`non empty renders correctly 1`] = `
         onLayout={[Function]}
         style={null}
       >
-        <View
-          disabled={false}
-          style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-                "borderBottomColor": "#bbb",
-                "borderBottomWidth": 1,
-                "paddingBottom": 10,
-                "paddingRight": 10,
-                "paddingTop": 10,
-              },
-              undefined,
-              false,
-              false,
-            ]
-          }
-          underlayColor="white"
-        >
+        <View>
           <View
             style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "row",
-                  "marginLeft": 10,
-                },
-                undefined,
-              ]
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "white",
+                "borderColor": "#bcbbc1",
+                "flexDirection": "row",
+                "padding": 14,
+              }
             }
           >
             <View
@@ -335,90 +236,100 @@ exports[`non empty renders correctly 1`] = `
                 }
               }
             >
-              <View>
-                <Text
-                  numberOfLines={1}
-                  style={
-                    Array [
-                      Object {},
-                      undefined,
-                      undefined,
-                      undefined,
-                      undefined,
-                      undefined,
-                      undefined,
-                      undefined,
-                      undefined,
-                      undefined,
-                      Array [
-                        Object {
-                          "color": "#43484d",
-                          "fontSize": 17.5,
-                        },
-                        Object {
-                          "marginLeft": 10,
-                        },
-                        undefined,
-                        undefined,
-                      ],
-                    ]
+              <Text
+                style={
+                  Object {
+                    "backgroundColor": "transparent",
+                    "fontSize": 17,
                   }
-                >
-                  test
-                </Text>
-              </View>
-              <View>
-                <View />
-              </View>
+                }
+                testID="listItemTitle"
+                theme={
+                  Object {
+                    "colors": Object {
+                      "disabled": "hsl(208, 8%, 90%)",
+                      "divider": "#bcbbc1",
+                      "error": "#ff190c",
+                      "grey0": "#393e42",
+                      "grey1": "#43484d",
+                      "grey2": "#5e6977",
+                      "grey3": "#86939e",
+                      "grey4": "#bdc6cf",
+                      "grey5": "#e1e8ee",
+                      "greyOutline": "#bbb",
+                      "platform": Object {
+                        "android": Object {
+                          "error": "#f44336",
+                          "primary": "#2196f3",
+                          "secondary": "#9C27B0",
+                          "success": "#4caf50",
+                          "warning": "#ffeb3b",
+                        },
+                        "ios": Object {
+                          "error": "#ff3b30",
+                          "primary": "#007aff",
+                          "secondary": "#5856d6",
+                          "success": "#4cd964",
+                          "warning": "#ffcc00",
+                        },
+                      },
+                      "primary": "#2089dc",
+                      "searchBg": "#303337",
+                      "secondary": "#8F0CE8",
+                      "success": "#52c41a",
+                      "warning": "#faad14",
+                    },
+                  }
+                }
+              >
+                test
+              </Text>
             </View>
             <View
-              accessible={true}
-              isTVSelectable={true}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Array [
-                  false,
-                  false,
-                  false,
+              width={16}
+            />
+            <View>
+              <View
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
                   Object {
                     "alignItems": "center",
                     "backgroundColor": "transparent",
                     "justifyContent": "center",
-                  },
-                  undefined,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
-                  Array [
-                    Object {
-                      "color": "#000",
-                      "fontSize": 24,
-                    },
+                  }
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  style={
                     Array [
+                      Object {
+                        "color": "#000",
+                        "fontSize": 24,
+                      },
                       Object {
                         "backgroundColor": "transparent",
                       },
-                      undefined,
-                    ],
-                    Object {
-                      "fontFamily": "Material Icons",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
+                      Object {
+                        "fontFamily": "Material Icons",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      Object {},
+                    ]
+                  }
+                  testID="iconIcon"
+                >
+                  
+                </Text>
+              </View>
             </View>
           </View>
         </View>

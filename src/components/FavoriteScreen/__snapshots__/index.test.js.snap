@@ -24,15 +24,9 @@ exports[`renders correctly 1`] = `
   </Text>
   <View
     style={
-      Array [
-        Object {
-          "marginLeft": 15,
-          "marginRight": 15,
-        },
-        undefined,
-        undefined,
-        undefined,
-      ]
+      Object {
+        "borderRadius": 3,
+      }
     }
   >
     <View
@@ -44,78 +38,37 @@ exports[`renders correctly 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={null}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
     >
       <View
-        pointerEvents="box-only"
         style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#9E9E9E",
-              "flexDirection": "row",
-              "justifyContent": "center",
-              "padding": 19,
-            },
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            Object {
-              "padding": 12,
-            },
-            undefined,
-            undefined,
-            undefined,
-            Array [
-              Object {
-                "backgroundColor": "rgba(92, 99,216, 1)",
-                "borderColor": "transparent",
-                "borderRadius": 5,
-                "borderWidth": 0,
-              },
-              Object {
-                "height": 45,
-                "width": 300,
-              },
-            ],
-            undefined,
-            undefined,
-          ]
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "rgba(92, 99,216, 1)",
+            "borderColor": "transparent",
+            "borderRadius": 5,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "height": 45,
+            "justifyContent": "center",
+            "padding": 8,
+            "width": 300,
+          }
         }
       >
         <Text
           style={
-            Array [
-              Object {},
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 20,
-                },
-                undefined,
-                Object {
-                  "fontSize": 17.5,
-                },
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-              ],
-            ]
+            Object {
+              "color": "white",
+              "fontSize": 18,
+              "paddingBottom": 1,
+              "paddingTop": 2,
+              "textAlign": "center",
+            }
           }
         >
           Перейти к постам
@@ -150,15 +103,9 @@ exports[`renders correctly with empty feed but exists authors 1`] = `
   </Text>
   <View
     style={
-      Array [
-        Object {
-          "marginLeft": 15,
-          "marginRight": 15,
-        },
-        undefined,
-        undefined,
-        undefined,
-      ]
+      Object {
+        "borderRadius": 3,
+      }
     }
   >
     <View
@@ -170,78 +117,37 @@ exports[`renders correctly with empty feed but exists authors 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={null}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
     >
       <View
-        pointerEvents="box-only"
         style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#9E9E9E",
-              "flexDirection": "row",
-              "justifyContent": "center",
-              "padding": 19,
-            },
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            Object {
-              "padding": 12,
-            },
-            undefined,
-            undefined,
-            undefined,
-            Array [
-              Object {
-                "backgroundColor": "rgba(92, 99,216, 1)",
-                "borderColor": "transparent",
-                "borderRadius": 5,
-                "borderWidth": 0,
-              },
-              Object {
-                "height": 45,
-                "width": 300,
-              },
-            ],
-            undefined,
-            undefined,
-          ]
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "rgba(92, 99,216, 1)",
+            "borderColor": "transparent",
+            "borderRadius": 5,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "height": 45,
+            "justifyContent": "center",
+            "padding": 8,
+            "width": 300,
+          }
         }
       >
         <Text
           style={
-            Array [
-              Object {},
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 20,
-                },
-                undefined,
-                Object {
-                  "fontSize": 17.5,
-                },
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-              ],
-            ]
+            Object {
+              "color": "white",
+              "fontSize": 18,
+              "paddingBottom": 1,
+              "paddingTop": 2,
+              "textAlign": "center",
+            }
           }
         >
           Перейти к постам
@@ -276,15 +182,9 @@ exports[`renders correctly with non empty feed and authors 1`] = `
   </Text>
   <View
     style={
-      Array [
-        Object {
-          "marginLeft": 15,
-          "marginRight": 15,
-        },
-        undefined,
-        undefined,
-        undefined,
-      ]
+      Object {
+        "borderRadius": 3,
+      }
     }
   >
     <View
@@ -296,78 +196,37 @@ exports[`renders correctly with non empty feed and authors 1`] = `
       onResponderTerminate={[Function]}
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
-      style={null}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
     >
       <View
-        pointerEvents="box-only"
         style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#9E9E9E",
-              "flexDirection": "row",
-              "justifyContent": "center",
-              "padding": 19,
-            },
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            undefined,
-            Object {
-              "padding": 12,
-            },
-            undefined,
-            undefined,
-            undefined,
-            Array [
-              Object {
-                "backgroundColor": "rgba(92, 99,216, 1)",
-                "borderColor": "transparent",
-                "borderRadius": 5,
-                "borderWidth": 0,
-              },
-              Object {
-                "height": 45,
-                "width": 300,
-              },
-            ],
-            undefined,
-            undefined,
-          ]
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "rgba(92, 99,216, 1)",
+            "borderColor": "transparent",
+            "borderRadius": 5,
+            "borderWidth": 0,
+            "flexDirection": "row",
+            "height": 45,
+            "justifyContent": "center",
+            "padding": 8,
+            "width": 300,
+          }
         }
       >
         <Text
           style={
-            Array [
-              Object {},
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              undefined,
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 20,
-                },
-                undefined,
-                Object {
-                  "fontSize": 17.5,
-                },
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-                undefined,
-              ],
-            ]
+            Object {
+              "color": "white",
+              "fontSize": 18,
+              "paddingBottom": 1,
+              "paddingTop": 2,
+              "textAlign": "center",
+            }
           }
         >
           Перейти к постам

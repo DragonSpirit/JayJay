@@ -16,9 +16,9 @@
   "dependencies": {
     "lodash.uniqby": "^4.7.0",
     "react": "16.6.3",
-    "react-native": "^0.59.4",
+    "react-native": "^0.59.6",
     "react-native-custom-tabs": "0.1.7",
-    "react-native-elements": "^0.19.1",
+    "react-native-elements": "^1.1.0",
     "react-native-fs": "^2.13.3",
     "react-native-htmlview": "^0.13.0",
     "react-native-render-html": "^4.1.2",
