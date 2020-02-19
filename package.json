@@ -37,7 +37,7 @@
     "babel-eslint": "^8.2.1",
     "babel-plugin-flow-react-proptypes": "^3.4.3",
     "babel-preset-flow": "^6.23.0",
-    "codecov": "^3.0.4",
+    "codecov": "^3.6.5",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^5.0.1",
