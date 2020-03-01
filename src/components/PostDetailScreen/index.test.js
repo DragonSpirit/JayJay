@@ -62,4 +62,18 @@ describe('PostDetailScreen', () => {
     wrapper.instance().toggleFavorite(navigation.state.params.id)
     expect(addToFavorite).toBeCalled()
   })
+
+  it('should share post called', () => {
+    const sharePost = jest.fn()
+    const wrapper = shallow(
+      <PostDetailScreen navigation={navigation} />,
+    )
+    wrapper.instance().sharePost = sharePost
+    wrapper.instance().forceUpdate()
+    const shareButton = wrapper
+      .find({name: 'share'})
+      .first();
+    shareButton.props().onPress()
+    expect(sharePost).toBeCalled()
+  })
 })
