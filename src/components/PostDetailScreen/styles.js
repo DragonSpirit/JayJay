@@ -22,7 +22,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
   },
+  iconsContainer: {
+    flex: 0.15,
+    flexDirection: 'column',
+    padding: 5,
+  },
   toggleFavoriteIcon: {
+    flex: 0.1,
+  },
+  shareIcon: {
     flex: 0.1,
   },
 })

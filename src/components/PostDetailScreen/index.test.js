@@ -24,7 +24,7 @@ describe('PostDetailScreen', () => {
   it('renders correctly', () => {
     const tree = renderer.create(<PostDetailScreen navigation={navigation} />).toJSON()
     expect(
-      tree.children['0'].children['1'].children['0'].children['0'].props.style['0'].color,
+      tree.children['0'].children['1'].children['0'].children['0'].children['0'].props.style['0'].color,
     ).toBe('#000')
     expect(tree).toMatchSnapshot()
   })
@@ -35,7 +35,7 @@ describe('PostDetailScreen', () => {
       .create(<PostDetailScreen navigation={navigation} isFavorite={isFavorite} />)
       .toJSON()
     expect(
-      tree.children['0'].children['1'].children['0'].children['0'].props.style['0'].color,
+      tree.children['0'].children['1'].children['0'].children['0'].children['0'].props.style['0'].color,
     ).toBe('#184fff')
     expect(tree).toMatchSnapshot()
   })

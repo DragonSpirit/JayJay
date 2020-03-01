@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react'
-import { View, ScrollView, Text } from 'react-native'
+import { View, ScrollView, Text, Share } from 'react-native'
 import { Button, Icon } from 'react-native-elements'
 import { ANIMATIONS_SLIDE, CustomTabs } from 'react-native-custom-tabs'
 import HTMLView from 'react-native-htmlview'
@@ -57,6 +57,15 @@ class PostDetailScreen extends React.PureComponent<Props> {
     })
   }
 
+  sharePost = async () => {
+    const { navigation } = this.props
+    const item = navigation && navigation.state && navigation.state.params
+    await Share.share({
+      message: item.url,
+      title: item.title,
+    })
+  }
+
   toggleFavorite = (id: number) => {
     const { isFavorite, addToFavorite, removeFromFavorite } = this.props
     if (isFavorite(id)) {
@@ -73,16 +82,26 @@ class PostDetailScreen extends React.PureComponent<Props> {
       <View style={commonStyles.flex}>
         <View style={styles.headerContainer}>
           <Text style={styles.title}>{item.title}</Text>
-          <Icon
-            name='heart'
-            type='font-awesome'
-            underlayColor={'transparent'}
-            style={styles.toggleFavoriteIcon}
-            color={isFavorite(item.id) ? '#184fff' : '#000'}
-            onPress={() => {
-              this.toggleFavorite(item.id)
-            }}
-          />
+          <View style={styles.iconsContainer}>
+            <Icon
+              name='heart'
+              type='font-awesome'
+              underlayColor={'transparent'}
+              style={styles.toggleFavoriteIcon}
+              color={isFavorite(item.id) ? '#184fff' : '#000'}
+              onPress={() => {
+                this.toggleFavorite(item.id)
+              }}
+            />
+            <Icon
+              name='share'
+              type='font-awesome'
+              underlayColor={'transparent'}
+              style={styles.shareIcon}
+              color='#000'
+              onPress={this.sharePost}
+            />
+          </View>
         </View>
         <ScrollView style={[commonStyles.flex, styles.scrollViewStyle]}>
           <HTMLView
